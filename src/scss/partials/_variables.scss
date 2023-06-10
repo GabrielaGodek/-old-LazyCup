@@ -1,0 +1,33 @@
+// @function ratio($w, $h){
+//     $ratio: $h / ($w / 100%);
+//     @return $ratio
+// };
+@function vw($w, $h){
+    $vw: $h / ($w / 100vw);
+    @return $vw
+};
+
+$desktop_breakpoint: 1000px;
+
+$bg_color: #F0C9BA;
+$header_color: #fff;
+$details_color: #CA8F7A;
+$promo_color: #9e3737;
+$text_color: #000;
+
+$header_height: 90px;
+
+$footer_height: 134px;
+$d_footer_height: 50px;
+$footer_color: #f9bc60;
+
+$menu_color: #e8e4e6;
+
+$header_padding: 53px;
+
+$open_menu_width: 293px;
+
+@font-face {
+    font-family: "mainFont";
+    src: url("https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/CabinetGrotesk_Complete/Fonts/OTF/CabinetGrotesk-Regular.otf");
+}
