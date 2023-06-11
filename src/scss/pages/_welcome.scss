@@ -1,12 +1,12 @@
 @use '../partials/variables' as v;
 
 .cls_content.welcome {
-    padding-bottom: v.vw(375, 667);
+    padding-bottom: v.vw(375, calc(667 - 90));
         @media (min-width: v.$desktop_breakpoint) {
             padding-bottom: v.vw(1280, 581);
         }
     .wrapper {
-        padding-top: v.$header_height;
+        // padding-top: v.$header_height;
         height: 100%;
         display: flex;
         flex-direction: column;

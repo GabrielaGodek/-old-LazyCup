@@ -1,11 +1,10 @@
 <script setup>
+import HeaderItem from "./components/headerItem.vue";
 </script>
 
 <template>
   <header>
-    <div class="wrapper">
-      <!-- <HeaderItem /> -->
-    </div>
+      <HeaderItem />
   </header>
   <div class="relative_header"></div>
   <router-view />

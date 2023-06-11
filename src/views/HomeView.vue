@@ -6,6 +6,7 @@
     <div class="cls_box">
       <div class="wrapper">
         <div class="logo">
+          <router-link :to="{ name: 'products' }">
           <!-- <img src="../assets/logo_startpage.svg" alt="Coffee Shop" class="bounce-in-fwd"/> -->
           <svg width="171" height="341" viewBox="0 0 171 341" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M161.744 141.483H8.7157L18.0796 116.486C19.9393 111.521 24.9287 108.2 30.5268 108.2H139.933C145.531 108.2 150.521 111.521 152.38 116.486L161.744 141.483Z" fill="#C86A58" class="svg-elem-1"></path>
@@ -29,13 +30,12 @@
             <path d="M96.792 74.4604L102.295 68.4856C103.775 66.8783 103.6 64.2257 101.933 62.8513C91.6686 54.3853 77.3322 54.3853 67.0676 62.8513C65.4007 64.2262 65.2264 66.8783 66.7062 68.4856L72.2088 74.4604C78.9969 67.0889 90.0035 67.0889 96.792 74.4604Z" fill="#C46F4D" class="svg-elem-19"></path>
             <path d="M131.736 36.5001L138.842 28.7834C140.426 27.0637 140.384 24.2431 138.722 22.6119C108.02 -7.53729 60.9798 -7.53729 30.2778 22.6119C28.6164 24.2431 28.5738 27.0637 30.1576 28.7834L37.2644 36.5001C38.7472 38.1101 41.1198 38.161 42.6865 36.6487C66.4629 13.6993 102.536 13.6993 126.313 36.6487C127.881 38.161 130.253 38.1101 131.736 36.5001Z" fill="#C64E2F" class="svg-elem-20"></path>
           </svg>
-
-
-        
-        
+        </router-link>
         </div>
-        <h1 class="clickToStart">Click here to order</h1>
 
+        <router-link :to="{ name: 'products' }">
+          <h1 class="clickToStart">Click here to order</h1>
+        </router-link>
       </div>
     </div>
   </div>

@@ -6,8 +6,12 @@ html, #app, body {
     box-sizing: border-box;
     background-color: v.$bg_color;
     font-family: 'mainFont';
+    font-size: v.$font-size;
 }
-
+a {
+    text-decoration: none;
+    color: v.$text_color;
+}
 .cls_content {
     position: relative;
     object-fit: cover;

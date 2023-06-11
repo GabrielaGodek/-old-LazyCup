@@ -1,19 +1,18 @@
-// @function ratio($w, $h){
-//     $ratio: $h / ($w / 100%);
-//     @return $ratio
-// };
-@function vw($w, $h){
-    $vw: $h / ($w / 100vw);
-    @return $vw
-};
+@use 'sass:math';
+@function vw($w, $h) {
+  $vw: math.div($h, math.div($w, 100vw));
+  @return $vw;
+}
 
 $desktop_breakpoint: 1000px;
 
-$bg_color: #F0C9BA;
+$bg_color: #f0c9ba;
 $header_color: #fff;
-$details_color: #CA8F7A;
+$details_color: #ca8f7a;
 $promo_color: #9e3737;
 $text_color: #000;
+
+$font-size: clamp(14px, 18px, 20px);
 
 $header_height: 90px;
 
@@ -27,7 +26,18 @@ $header_padding: 53px;
 
 $open_menu_width: 293px;
 
+@mixin f_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin shadow {
+    -webkit-box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
+    box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
+}
+
 @font-face {
-    font-family: "mainFont";
-    src: url("https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/CabinetGrotesk_Complete/Fonts/OTF/CabinetGrotesk-Regular.otf");
+  font-family: 'mainFont';
+  src: url('https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/CabinetGrotesk_Complete/Fonts/OTF/CabinetGrotesk-Regular.otf');
 }

@@ -1,6 +1,6 @@
 <script setup>
 const openMenu = () => {
-        window.innerWidth < 1000 ? document.querySelector('.header nav').classList.toggle('open') : '';
+        window.innerWidth < 1000 ? document.querySelector('header nav').classList.toggle('open') : '';
         // document.querySelector('header nav').classList.toggle('open')
     }
 </script>
@@ -15,11 +15,11 @@ const openMenu = () => {
             <li title="products"><router-link :to="{ name: 'products' }" @click="openMenu">Orders</router-link></li>
         </ul>
     </nav>
-  <div class="menu_icon" @click="openMenu">
-          <span></span>
-          <span></span>
-          <span></span>
-      </div>
+    <div class="menu_icon" @click="openMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 </div>
 <div class="rel_header"></div>
   
