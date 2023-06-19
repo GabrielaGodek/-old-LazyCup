@@ -2,5 +2,9 @@
 @use 'partials/based';
 // @use 'partials/variables';
 @use 'partials/header';
+@use 'partials/productTile';
 
 @use 'pages/welcome';
+@use 'pages/listing';
+@use 'pages/productPage';
+@use 'pages/cart';

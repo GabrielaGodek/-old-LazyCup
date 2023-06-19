@@ -1,0 +1,58 @@
+@use '../partials/variables' as *;
+
+.cart_page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    height: calc(70vh - $header_height);
+    .orders {
+        height: 100%;
+        overflow: scroll;
+        .single_order {
+            background-color: #ffffff79;
+            margin: 15px 0;
+            border-radius: 10px;
+            .tile {
+                display: flex;
+                .image {
+                    flex: 1 1 50%;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .description {
+                    flex: 1 1 50%;
+                }
+            }
+        }
+    }
+    .summary {
+        position: fixed;
+        height: 30vh;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        // width: 100%;
+        background-color: $header_color;
+        border-radius: 10px;
+        padding: 0 $header_padding;
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .text {
+                font-size: $font-size;
+            }
+        }
+        .sum {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            min-height: 50px;
+        }
+    }
+    @include btn;
+}

@@ -1,26 +1,38 @@
 <script setup>
-const openMenu = () => {
-        window.innerWidth < 1000 ? document.querySelector('header nav').classList.toggle('open') : '';
-        // document.querySelector('header nav').classList.toggle('open')
-    }
+import ProductTile from "../components/productTile.vue";
 </script>
-<template>
+<script>
+// import { reactive } from "vue";
+export default {
+    data (){
+        return {
+            CoffeesList: []
+            // CoffeesList: reactive([])
+        }
+    },
+    methods: {
+        getCoffees() {
+            fetch('https://my-json-server.typicode.com/GabrielaGodek/CoffeeShop-Database/coffees/')
+            .then(res =>  res.json())
+            // .then(data => console.log(data))
+            .then(data => this.CoffeesList = data)
+            
+        }
+    },
+    mounted() {
+        this.getCoffees()
+    }
+}
 
-<div class="header">
-  <h1 class="name">Coffee Shop</h1>
-  <nav>
-        <ul>
-            <li title="products"><router-link :to="{ name: 'products' }" @click="openMenu">Products</router-link></li>
-            <li title="products"><router-link :to="{ name: 'products' }" @click="openMenu">Favorite</router-link></li>
-            <li title="products"><router-link :to="{ name: 'products' }" @click="openMenu">Orders</router-link></li>
-        </ul>
-    </nav>
-    <div class="menu_icon" @click="openMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+</script>
+
+<template>
+<div class="wrapper listing">
+    <div class="tile_wrapper" v-for="item in CoffeesList" :key="item.id">
+        <ProductTile :coffee="item"/>
+    </div>
+    
 </div>
-<div class="rel_header"></div>
   
 </template>
+

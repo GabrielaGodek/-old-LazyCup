@@ -1,0 +1,48 @@
+@use 'variables' as *;
+.listing {
+    .product_tile {
+        // border: 1px solid $header_color;
+        background-color: $header_color;
+        max-width: clamp(25vw, 40vw, 40vw);
+        @include shadow;
+        .tile {
+            display: flex;
+            flex-direction: column;
+            .image {
+                flex: 1 1 50%;
+                margin: 0 auto;
+                img {
+                    width: 100%;
+                }
+                
+            }
+            .description {
+                padding: 5px;
+                flex: 1 1 50%;
+                background-color: $details_color;
+                    border-radius: 10px 10px 0 0;
+                    min-height: 50px;
+                .title {
+                    font-size: $font-size;
+                    text-align: center;
+                    font-weight: 800;
+                }
+                .price_container {
+                    
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    .new_price {
+                        color: $promo_color;
+                        font-size: clamp(18px, 20px, 22px);
+                    }
+                    .old_price {
+                        opacity: .5;
+                        text-decoration: line-through;
+                        font-size: clamp(14px, 16px, 18px);
+                    }
+                }
+            }
+        }
+    }
+}

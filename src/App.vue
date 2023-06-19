@@ -7,5 +7,7 @@ import HeaderItem from "./components/headerItem.vue";
       <HeaderItem />
   </header>
   <div class="relative_header"></div>
-  <router-view />
+  <main>
+    <router-view />
+  </main>
 </template>

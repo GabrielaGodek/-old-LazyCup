@@ -22,7 +22,7 @@ $footer_color: #f9bc60;
 
 $menu_color: #e8e4e6;
 
-$header_padding: 53px;
+$header_padding: 30px;
 
 $open_menu_width: 293px;
 
@@ -35,6 +35,21 @@ $open_menu_width: 293px;
     -webkit-box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
     box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
+}
+
+@mixin btn {
+  .buy {
+    appearance: none;
+    border: none;
+    background-color: $promo_color;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+}
 }
 
 @font-face {
