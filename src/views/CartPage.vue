@@ -34,11 +34,6 @@ console.log(storedOrderItems)
         <div class="orders">
             <div class="single_order" v-for="item in orderItems" :key="item.id">
                 <ProductTile :coffee="item" />
-                <div class="counter">
-                    <input type="button" value="+">
-                    <input type="number" name="amount" id="">
-                    <input type="button" value="-">
-                </div>
             </div>
         </div>
         <div class="summary">
@@ -49,9 +44,6 @@ console.log(storedOrderItems)
                 <span class="amount" v-for="item in orderItems" :key="item.id"> 
                     {{ item.price - item.salePrice }} zł</span>
             </div>
-            <!-- <div class="total row">
-                <h3 class="text">Total</h3><span class="amount"> zł</span>
-            </div> -->
             <div class="sum">
                 <div class="total_price">20 zł</div>
                 <router-link :to="{ name: 'cart' }">

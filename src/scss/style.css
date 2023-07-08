@@ -24,19 +24,22 @@ a {
   color: #000;
 }
 
-.cls_content {
-  position: relative;
-  object-fit: cover;
+.new_price {
+  color: #9e3737;
+  font-size: 20px;
+}
+.new_price ~ .old_price {
+  opacity: 0.5;
+  text-decoration: line-through;
+  font-size: 16px;
 }
 
-.cls_content > .cls_box {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+.old_price {
+  font-size: 20px;
+}
+
+.single_order .details {
+  display: none;
 }
 
 .header {
@@ -95,7 +98,7 @@ a {
   width: 35px;
   height: 20px;
 }
-@media (min-width: 1000px) {
+@media (min-width: 800px) {
   .header .menu_icon {
     display: none;
   }
@@ -198,7 +201,6 @@ a {
 }
 .listing .product_tile {
   background-color: #fff;
-  max-width: 40vw;
   -webkit-box-shadow: 0px 4px 35px -8px rgb(66, 68, 90);
   -moz-box-shadow: 0px 4px 35px -8px rgb(66, 68, 90);
   box-shadow: 0px 4px 35px -8px rgb(66, 68, 90);
@@ -235,21 +237,16 @@ a {
   color: #9e3737;
   font-size: 20px;
 }
-.listing .product_tile .tile .description .price_container .old_price {
+.listing .product_tile .tile .description .price_container .new_price ~ .old_price {
   opacity: 0.5;
   text-decoration: line-through;
   font-size: 16px;
 }
 
-.cls_content.welcome {
-  padding-bottom: 153.8666666667vw;
+.welcome {
+  height: calc(100vh - 90px);
 }
-@media (min-width: 1000px) {
-  .cls_content.welcome {
-    padding-bottom: 45.390625vw;
-  }
-}
-.cls_content.welcome .wrapper {
+.welcome .wrapper {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -683,12 +680,20 @@ a {
 }
 
 .listing {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  row-gap: 20px;
   padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (min-width: 800px) {
+  .listing {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1280px) {
+  .listing {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
 }
 
 .product_page {
@@ -710,7 +715,7 @@ a {
   display: flex;
   flex-direction: column;
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 800px) {
   .product_page .tile {
     flex-direction: row;
   }
@@ -718,6 +723,14 @@ a {
 .product_page .tile .image {
   margin: 0 auto;
   flex: 1 1 50%;
+  display: flex;
+}
+.product_page .tile .image picture {
+  display: flex;
+}
+.product_page .tile .image img {
+  width: 40vw;
+  align-self: center;
 }
 .product_page .tile .description {
   flex: 1 1 50%;
@@ -742,15 +755,6 @@ a {
   align-items: center;
   gap: 20px;
   padding: 10px 0;
-}
-.product_page .tile .description .price_container .new_price {
-  color: #9e3737;
-  font-size: 20px;
-}
-.product_page .tile .description .price_container .old_price {
-  opacity: 0.5;
-  text-decoration: line-through;
-  font-size: 16px;
 }
 
 .add_to_cart {
@@ -796,12 +800,49 @@ a {
 }
 .cart_page .orders .single_order .tile .image {
   flex: 1 1 50%;
+  margin: auto;
+  display: flex;
 }
-.cart_page .orders .single_order .tile .image img {
-  width: 100%;
+.cart_page .orders .single_order .tile .image picture {
+  margin: 0 auto;
 }
 .cart_page .orders .single_order .tile .description {
   flex: 1 1 50%;
+}
+.cart_page .orders .single_order .tile .description .title {
+  text-align: center;
+  font-size: 22px;
+}
+.cart_page .orders .single_order .tile .description .price_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.cart_page .orders .single_order .counter {
+  display: flex;
+  justify-content: end;
+}
+.cart_page .orders .single_order .counter input {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+}
+.cart_page .orders .single_order .counter input[type=button] {
+  background-color: #ca8f7a;
+  max-width: 30px;
+  width: 100%;
+}
+.cart_page .orders .single_order .counter input[type=button]:first-child {
+  border-radius: 5px 0 0 5px;
+}
+.cart_page .orders .single_order .counter input[type=button]:last-child {
+  border-radius: 0 5px 5px 0;
+}
+.cart_page .orders .single_order .counter input[type=number] {
+  background-color: #fff;
+  max-width: 30px;
+  width: 100%;
+  text-align: center;
 }
 .cart_page .summary {
   position: fixed;

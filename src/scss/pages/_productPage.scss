@@ -23,6 +23,14 @@
         .image {
             margin: 0 auto;
             flex: 1 1 50%;
+            display: flex;
+            picture {
+                display: flex;
+            }
+            img {
+                width: 40vw;
+                align-self: center;
+            }
         }
         .description {
             flex: 1 1 50%;
@@ -46,15 +54,20 @@
                 align-items: center;
                 gap: 20px;
                 padding: 10px 0;
-                .new_price {
-                    color: $promo_color;
-                    font-size: clamp(18px, 20px, 22px);
-                }
-                .old_price {
-                    opacity: .5;
-                    text-decoration: line-through;
-                    font-size: clamp(14px, 16px, 18px);
-                }
+                // .new_price {
+                //     color: $promo_color;
+                //     font-size: clamp(18px, 20px, 22px);
+                //     & ~ .old_price {
+                //         opacity: .5;
+                //         text-decoration: line-through;
+                //         font-size: clamp(14px, 16px, 18px);
+                //     }
+                // }
+                // .old_price {
+                //     font-size: clamp(18px, 20px, 22px);
+
+                // }
+                
             }
         }
     }

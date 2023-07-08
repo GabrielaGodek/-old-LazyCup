@@ -1,9 +1,14 @@
-.listing {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    row-gap: 20px;
-    padding: 20px;
+@use '../partials/variables' as *;
 
+.listing {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  @media (min-width: $desktop_breakpoint) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  @media (min-width: 1280px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
 }

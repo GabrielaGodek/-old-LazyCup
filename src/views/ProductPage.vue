@@ -12,8 +12,7 @@ export default {
     props: ['id'],
     data (){
         return {
-            coffee: [],
-            // Coffee: reactive([])
+            coffee: []
         }
     },
     methods: {
@@ -25,16 +24,23 @@ export default {
         },
         addToCart(coffee) {
             const item = ref(coffee)
-            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
             cartItems.push(item.value);
-            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            localStorage.setItem("cartItems", JSON.stringify(cartItems))
 
         }
     },
     mounted() {
         const router = useRouter();
         const id = router.currentRoute.value.params.id;
-        this.getSpecCoffee(id)
+        console.log('id')
+        console.log(id)
+
+        if(localStorage.getItem("CoffeeResponse")){
+            this.coffee = JSON.parse(localStorage.getItem("CoffeeResponse"))[id]
+        } else {
+            this.getSpecCoffee(id)
+        }
     }
 }
 

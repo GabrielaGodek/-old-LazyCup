@@ -15,12 +15,19 @@ export default {
             fetch('https://my-json-server.typicode.com/GabrielaGodek/CoffeeShop-Database/coffees/')
             .then(res =>  res.json())
             // .then(data => console.log(data))
-            .then(data => this.CoffeesList = data)
-            
+            .then(data => {
+                this.CoffeesList = data
+                localStorage.setItem("CoffeeResponse", JSON.stringify(this.CoffeesList))
+            })
+
         }
     },
     mounted() {
-        this.getCoffees()
+        if(localStorage.getItem("CoffeeResponse")){
+            this.CoffeesList = JSON.parse(localStorage.getItem("CoffeeResponse"))
+        } else {
+            this.getCoffees()
+        }
     }
 }
 

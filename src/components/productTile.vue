@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from "vue";
+// import { defineProps } from "vue";
 import { useRouter } from "vue-router";
 
 const props = defineProps({
@@ -17,17 +17,19 @@ const openProductPage = () => {
         id: props.coffee.id 
     },
   })
+  console.log(props.coffee.id)
 }
+
 </script>
 
 
 <template>
-    <div class="product_tile">
+    <div class="product_tile" :id="props.coffee.id">
         <div class="tile">
             <div class="image">
                 <picture>
                     <source media="(min-width: 800px)" srcset="">
-                    <img src="../../public/Latte (1).png" alt="{{ props.coffee.name }}">
+                    <img :src="props.coffee.image" :alt="props.coffee.name">
                 </picture>
             </div>
             <div class="description" @click="openProductPage()">
@@ -38,8 +40,8 @@ const openProductPage = () => {
                     {{ props.coffee.description }}
                 </div>
                 <div class="price_container">
-                    <span class="new_price"> {{ props.coffee.salePrice }} zł</span>
-                    <span class="old_price" v-if="props.coffee.price"> {{ props.coffee.price }} zł</span>
+                    <span class="new_price" v-if="props.coffee.salePrice"> {{ props.coffee.salePrice }} zł</span>
+                    <span class="old_price" > {{ props.coffee.price }} zł</span>
                 </div>
             </div>
         </div>

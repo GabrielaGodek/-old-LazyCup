@@ -2,8 +2,8 @@
 </script>
 
 <template>
-  <div class="cls_content welcome">
-    <div class="cls_box">
+  <div class="welcome">
+    <!-- <div class="cls_box"> -->
       <div class="wrapper">
         <div class="logo">
           <router-link :to="{ name: 'products' }">
@@ -37,6 +37,6 @@
           <h1 class="clickToStart">Click here to order</h1>
         </router-link>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 </template>

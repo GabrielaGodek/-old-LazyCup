@@ -10,9 +10,9 @@ const openMenu = () => {
   <h1 class="name">Coffee Shop</h1>
   <nav>
         <ul>
-            <li title="products"><router-link :to="{ name: 'products' }" @click="openMenu">Products</router-link></li>
-            <li title="products"><router-link :to="{ name: 'products' }" @click="openMenu">Favorite</router-link></li>
-            <li title="products"><router-link :to="{ name: 'products' }" @click="openMenu">Orders</router-link></li>
+            <li class="link products"><router-link :to="{ name: 'products' }" @click="openMenu">Products</router-link></li>
+            <li class="link fav"><router-link :to="{ name: 'products' }" @click="openMenu">Favorite</router-link></li>
+            <li class="link cart"><router-link :to="{ name: 'cart' }" @click="openMenu">Orders</router-link></li>
         </ul>
     </nav>
   <div class="menu_icon" @click="openMenu">
