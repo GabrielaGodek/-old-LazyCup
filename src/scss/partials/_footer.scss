@@ -1,0 +1,41 @@
+@use './variables' as *;
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: $header_height;
+    background-color: $header_color;
+    @include shadow;
+    nav {
+        height: 100%;
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            display: flex;
+            @include f_center;
+            gap: 32px;
+            li {
+                height: 35px;
+                width: 35px;
+                position: relative;
+                img {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+            .router-link-active {
+                background-color: #AC7349;
+                padding-left: 1px;
+                border-radius: 4px;
+                img {
+                    filter: invert(100%);
+                }
+            }
+        }
+    }
+}

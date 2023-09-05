@@ -1,85 +1,116 @@
 @use '../partials/variables' as *;
 
 .product_page {
-    height: 100%;
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  .product_tile {
     flex-grow: 1;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    .product_tile{
-        flex-grow: 1;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
+  }
+  .tile {
+    flex-grow: 1;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: $lg_breakpoint) {
+      flex-direction: row;
     }
-    .tile {
-        flex-grow: 1;
-        height: 100%;
-        width: 100vw;
+    .image {
+      margin: 0 auto;
+      flex: 1 1 50%;
+      display: flex;
+      picture {
         display: flex;
-        flex-direction: column;
-        @media screen and (min-width: $desktop_breakpoint) {
-            flex-direction: row;
-        }
-        .image {
-            margin: 0 auto;
-            flex: 1 1 50%;
-            display: flex;
-            picture {
-                display: flex;
-            }
-            img {
-                width: 40vw;
-                align-self: center;
-            }
-        }
-        .description {
-            flex: 1 1 50%;
-            background-color: $header_color;
-            height: 100%;
-            padding: 0 $header_padding;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            .title {
-                margin: 20px 0;
-            }
-            .details {
-                text-align: justify;
-                order: 2;
-            }
-            .price_container {
-                order: 1;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 20px;
-                padding: 10px 0;
-                // .new_price {
-                //     color: $promo_color;
-                //     font-size: clamp(18px, 20px, 22px);
-                //     & ~ .old_price {
-                //         opacity: .5;
-                //         text-decoration: line-through;
-                //         font-size: clamp(14px, 16px, 18px);
-                //     }
-                // }
-                // .old_price {
-                //     font-size: clamp(18px, 20px, 22px);
-
-                // }
-                
-            }
-        }
+      }
+      img {
+        width: 40vw;
+        align-self: center;
+      }
     }
+    .description {
+      flex: 1 1 50%;
+      background-color: $header_color;
+      height: 100%;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      color: #000;
+      // font-family: Cabinet Grotesk;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 27px */
 
+      .title {
+        margin: 20px 0 0 0;
+        color: #000;
+        font-family: Cabinet Grotesk;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 51px */
+      }
+      .details {
+        text-align: justify;
+        order: 1;
+        color: #000;
+        // font-family: Cabinet Grotesk;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        // line-height: 150%; /* 27px */
+        max-height: 108px;
+        overflow-y: scroll;
+      }
+      .price_container {
+        // display: none;
+        order: 2;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        .new_price {
+          color: #db1313;
+          // font-family: Cabinet Grotesk;
+          font-size: 34px;
+          font-style: normal;
+          font-weight: 400;
+          // line-height: 150%; /* 51px */
+          & ~ .old_price {
+            text-decoration: line-through;
+        }
+        }
+        .old_price {
+          // color: #000;
+          // font-family: Cabinet Grotesk;
+          font-size: 25px;
+          font-style: normal;
+          font-weight: 400;
+          // line-height: 150%; /* 37.5px */
+          // text-decoration-line: strikethrough;
+          
+        }
+      }
+    }
+  }
 }
 .add_to_cart {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: $header_color;
-    min-height: 50px;
-    @include btn;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: $header_height;
+  //   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+  background-color: $header_color;
+  min-height: 50px;
+  @include btn;
 }

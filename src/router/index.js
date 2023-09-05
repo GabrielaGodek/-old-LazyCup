@@ -1,9 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import ListingPage from '../views/ListingPage.vue'
-import ProductPage from '../views/ProductPage.vue'
-import CartPage from '../views/CartPage.vue'
-// import ProductTile from '../components/productTile.vue'
+import HomeView from '@/views/HomeView.vue'
+import ListingPage from '@/views/ListingPage.vue'
+import TransactionsPage from '@/views/TransactionsPage.vue'
+import ProductPage from '@/views/ProductPage.vue'
+import CartPage from '@/views/CartPage.vue'
+import FavoritePage from '@/views/FavoritePage.vue'
+import SummaryPage from '@/views/SummaryPage.vue'
+// import ProductTile from '@/components/productTile.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,9 +27,24 @@ const router = createRouter({
       component: ProductPage
     },
     {
+      path: '/transactions',
+      name: 'transactions',
+      component: TransactionsPage
+    },
+    {
       path: '/cart',
       name: 'cart',
       component: CartPage
+    },
+    {
+      path: '/favorite',
+      name: 'favorite',
+      component: FavoritePage
+    },
+    {
+      path: '/summary',
+      name: 'summary',
+      component: SummaryPage
     },
 
   ]

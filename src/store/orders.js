@@ -1,0 +1,10 @@
+import { defineStore } from 'pinia'
+
+
+export default defineStore('ordersTrack', {
+  state: () => ({
+    orders: [],
+    coffees: []
+  }),
+  persist: true
+})

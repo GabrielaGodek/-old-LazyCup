@@ -5,92 +5,147 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  height: calc(70vh - $header_height);
-  .orders {
-    height: 100%;
+  height: calc(100vh - $header_height - 244px);
+  section.orders {
+    // height: calc(100vh - 244px);
     overflow: scroll;
     .single_order {
-      background-color: #ffffff79;
-      margin: 15px 0;
-      border-radius: 10px;
+      border-radius: 4px;
+      background: rgba(172, 115, 73, 0.23);
+      margin: 10px 15px;
+      padding: 9px 12px;
+      max-height: 115px;
+      &:first-of-type {
+        margin-top: 32px;
+      }
       .tile {
         display: flex;
+        height: 97px;
+
         .image {
-          flex: 1 1 50%;
-          margin: auto;
-          display: flex;
 
           picture {
             margin: 0 auto;
           }
         }
         .description {
-          flex: 1 1 50%;
+          // flex: 1 1 50%;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
           .title {
-            text-align: center;
-            font-size: clamp(20px, 22px, 24px);
+            flex-basis: 100%;
+            color: #000;
+            // font-family: Cabinet Grotesk;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%; /* 30px */
           }
           .price_container {
             display: flex;
             justify-content: space-evenly;
             align-items: center;
+            .price {
+              color: #000;
+              // font-family: Cabinet Grotesk;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 150%; /* 30px */
+            }
           }
         }
       }
       .counter {
         display: flex;
-        justify-content: end;
+        // justify-content: end;
         input {
-            appearance: none;
-            border: none;
-            background-color: transparent;
-            &[type="button"] {
-                background-color: $details_color;
-                max-width: 30px;
-                width: 100%;
-                &:first-child {
-                    border-radius: 5px 0 0 5px;
-                }
-                &:last-child {
-                    border-radius: 0 5px 5px 0;
-                }
+          appearance: none;
+          border: none;
+          background-color: $details_color;
+          color: $header_color;
+          height: 30px;
+          &[type='button'] {
+            // max-width: 30px;
+            width: 100%;
+            &:first-child {
+              border-radius: 4px 0 0 4px;
             }
-            &[type="number"] {
-                background-color: #fff;
-                max-width: 30px;
-                width: 100%;
-                text-align: center;
+            &:last-child {
+              border-radius: 0 4px 4px 0;
             }
+          }
+          &[type='number'] {
+            // background-color: #fff;
+            // max-width: 30px;
+            width: 100%;
+            text-align: center;
+          }
         }
       }
     }
   }
   .summary {
     position: fixed;
-    height: 30vh;
+    height: 244px;
     bottom: 0;
     right: 0;
     left: 0;
     // width: 100%;
     background-color: $header_color;
     border-radius: 10px;
-    padding: 0 $header_padding;
+    padding: 27px $header_padding 52px;
     .row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      .text {
-        font-size: $font-size;
-      }
+      height: 24px;
+      margin: 5px 0;
+    }
+    h2 {
+      color: #000;
+      // font-family: Cabinet Grotesk;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 30px */
+      text-align: center;
+    }
+    .discount * {
+      color: #000;
+      // font-family: Cabinet Grotesk;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 18px */
+    }
+    .total * {
+      color: #000;
+      font-family: Cabinet Grotesk;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 24px */
     }
     .sum {
       position: relative;
       width: 100%;
       display: flex;
-      justify-content: space-evenly;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
       align-items: center;
       min-height: 50px;
+      a[href^="/cart"] {
+        width: 100%;
+        button {
+          width: 100%;
+        }
+      }
     }
   }
   @include btn;
+  
 }

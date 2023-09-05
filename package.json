@@ -11,8 +11,13 @@
     "sass": "sass --watch --update --style=expanded src/scss:src/scss"
   },
   "dependencies": {
+    "@chenfengyuan/vue-qrcode": "^2.0.0",
     "pinia": "^2.0.36",
-    "vue": "^3.3.2",
+    "pinia-plugin-persistedstate": "^3.2.0",
+    "qrcode": "^1.5.3",
+    "qrcode.vue": "^3.4.1",
+    "vue": "^3.3.4",
+    "vue-qrcode-component": "^2.1.1",
     "vue-router": "^4.2.2"
   },
   "devDependencies": {
@@ -23,6 +28,7 @@
     "eslint-plugin-vue": "^9.11.0",
     "prettier": "^2.8.8",
     "sass": "^1.63.3",
-    "vite": "^4.3.5"
+    "vite": "^4.3.5",
+    "vue-qrcode-dynamic": "^3.0.3"
   }
 }
