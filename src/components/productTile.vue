@@ -1,7 +1,7 @@
 <script>
 import { mapWritableState } from 'pinia'
 import { mapStores } from 'pinia'
-import ordersTrackStore from '@/store/orders'
+import { useOrdersStore } from '@/store/orders'
 
 export default {
   name: 'productTile',
@@ -21,12 +21,12 @@ export default {
     // actionItems
   },
   computed: {
-    ...mapWritableState(ordersTrackStore, ['coffees']),
-    ...mapStores(ordersTrackStore)
+    ...mapWritableState(useOrdersStore, ['coffees']),
+    ...mapStores(useOrdersStore)
   },
   methods: {
     addToFav(coffee) {
-      let item = this.ordersTrackStore.coffees[coffee.id - 1]
+      let item = this.ordersStore.coffees[coffee.id - 1]
       item.isFav ? item.isFav = false : item.isFav = true
     },
     basketShort(coffee) {
@@ -38,7 +38,7 @@ export default {
           salePrice: coffee.salePrice,
           amount: 1,
         }
-      this.ordersTrackStore.orders.push(coffeeConfig)
+      this.ordersStore.orders.push(coffeeConfig)
       this.$router.push({name: 'cart'})
     }
    }

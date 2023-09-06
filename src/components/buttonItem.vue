@@ -1,7 +1,7 @@
 
 <script>
 import { mapStores } from "pinia";
-import ordersTrackStore from '@/store/orders'
+import { useOrdersStore } from '@/store/orders'
 
 export default {
     name: 'ActionButton',
@@ -12,13 +12,13 @@ export default {
         }
     },
     computed: {
-        ...mapStores(ordersTrackStore)
+        ...mapStores(useOrdersStore)
     },
 }
 </script>
 
 <template>
-    <button class="buy" @click="this.ordersTrackStore.orders = []">
+    <button class="buy" >
         {{ btnText }} <img src="/arrow.svg" alt="add coffee to cart">
     </button>
 </template>

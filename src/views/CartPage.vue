@@ -2,9 +2,9 @@
 // import ProductTile from '@/components/productTile.vue'
 import buttonItem from '@/components/buttonItem.vue'
 import backItem from '@/components/backItem.vue'
-import { ref, reactive } from 'vue'
-import { mapStores } from 'pinia'
-import ordersTrackStore from '@/store/orders'
+import { ref } from 'vue'
+import { mapStores, mapActions } from 'pinia'
+import { useOrdersStore } from '@/store/orders'
 
 export default {
   name: 'CartPage',
@@ -16,32 +16,50 @@ export default {
   data() {
     return {
       btnText: ref('Checkout'),
-      orderItems: reactive([]),
-      totalDiscount: ref(0),
-      totalPrice: ref(0)
-      // storedOrderItems: localStorage.getItem("cartItems")
+      ordersItems: [],
+      // storedOrdersItems: localStorage.getItem("cartItems")
     }
   },
   computed: {
-    ...mapStores(ordersTrackStore)
+    ...mapStores(useOrdersStore),
+    totalPrice() {
+      return this.ordersItems.reduce(
+        (total, item) =>
+          total + (item.salePrice < item.price ? item.salePrice : item.price) * item.amount,
+        0
+      )
+    },
+    totalDiscount() {
+      return this.ordersItems.reduce(
+        (total, item) =>
+          total + (item.salePrice < item.price ? item.price - item.salePrice : 0) * item.amount,
+        0
+      )
+    }
   },
   methods: {
+    ...mapActions(useOrdersStore, ['addItem', 'removeItem']),
     updateOrder() {
-      this.ordersTrackStore.orders.forEach((order) => {
-        this.orderItems.push(order)
+      this.ordersStore.orders.forEach((order) => {
+        this.ordersItems.push(order)
       })
-      localStorage.setItem('orderItems', JSON.stringify(this.orderItems))
-      // console.log(typeof this.ordersTrackStore)
+      localStorage.setItem('ordersItems', JSON.stringify(this.ordersItems))
+      // console.log(typeof this.ordersStore)
     },
-    addProducts(item){
-      console.log(item)
+    addProducts(item) {
+      // console.log(item)
+      this.addItem(item)
+    },
+    removeProduct(item) {
+      // console.log(item)
+      this.removeItem(item)
     }
   },
   mounted() {
     this.updateOrder()
+    // this.total()
   },
-  updated() {
-  }
+  updated() {}
 }
 </script>
 
@@ -49,7 +67,7 @@ export default {
   <!-- {{ this.orderItems }} -->
   <div class="cart_page">
     <section class="orders">
-      <div class="single_order" v-for="item in orderItems" :key="item.id">
+      <div class="single_order" v-for="item in ordersItems" :key="item.id">
         <!-- <div class="product_tile"> -->
         <div class="tile">
           <div class="action">
@@ -77,12 +95,7 @@ export default {
                 :disabled="item.amount == 10"
               />
               <input type="number" name="coffee_amount" id="" :value="item.amount" />
-              <input
-                type="button"
-                value="-"
-                @click.prevent=""
-                :disabled="item.amount == 0"
-              />
+              <input type="button" value="-" @click.prevent="removeProduct(item)" />
             </div>
           </div>
         </div>
@@ -96,11 +109,11 @@ export default {
       <h2>Order Details</h2>
       <div class="discount row">
         <h3 class="text">Discount</h3>
-        <span class="amount"> {{ this.totalDiscount }} zł </span>
+        <span class="amount"> {{ totalDiscount }} zł </span>
       </div>
       <div class="total row">
         <h3 class="text">Total</h3>
-        <span class="amount"> {{ this.totalPrice }} zł </span>
+        <span class="amount"> {{ totalPrice }} zł </span>
       </div>
       <div class="sum">
         <router-link :to="{ name: 'summary' }">

@@ -1,7 +1,7 @@
 <script>
 import { ref } from 'vue'
 import { mapStores } from 'pinia'
-import ordersTrackStore from '@/store/orders'
+import { useOrdersStore } from '@/store/orders'
 import ProductTile from '@/components/productTile.vue'
 
 export default {
@@ -17,10 +17,10 @@ export default {
     }
   },
   computed: {
-    ...mapStores(ordersTrackStore)
+    ...mapStores(useOrdersStore)
   },
   updated() {
-    if (this.ordersTrackStore.coffees.filter((i) => i.isFav == true).length !== 0) {
+    if (this.ordersStore.coffees.filter((i) => i.isFav == true).length !== 0) {
         this.emptyFav = false
       } else {
         this.emptyFav = true
@@ -32,7 +32,7 @@ export default {
 <template>
   <section class="wrapper listing" :class="{ empty: emptyFav }">
     <!-- <h1>Favorite</h1> -->
-    <template v-for="item in this.ordersTrackStore.coffees" :key="item.id">
+    <template v-for="item in this.ordersStore.coffees" :key="item.id">
       <div class="tile_wrapper" v-if="item.isFav && item.isFav === true">
         <product-tile :coffee="item" />
       </div>

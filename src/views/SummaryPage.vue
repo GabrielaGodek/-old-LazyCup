@@ -27,7 +27,7 @@
   import QRCode from "vue-qrcode-dynamic"
 
   import { mapStores } from 'pinia'
-  import ordersTrackStore from '@/store/orders'
+  import { useOrdersStore } from '@/store/orders'
 
   export default {
     name: 'summaryPage',
@@ -46,13 +46,13 @@
       QRCode
     },
     computed: {
-        ...mapStores(ordersTrackStore)
+        ...mapStores(useOrdersStore)
     },
     methods: {
         createOrder(){
           
             let totalPrice
-            this.ordersTrackStore.orders.forEach(i => {
+            this.useOrdersStore.orders.forEach(i => {
                 let QRvalue = `${i.name} - ${i.amount} x ${i.salePrice ? i.salePrice : i.price}; `
                 this.summary += QRvalue
 
