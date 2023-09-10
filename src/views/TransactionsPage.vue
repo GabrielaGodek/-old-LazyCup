@@ -1,44 +1,80 @@
 <template>
-  <section class="wrapper transactions">
+  <section class="wrapper transactions" v-show="!emptyTransactions">
+    <!-- {{this.transactions}} -->
+
     <h1>Last transactions</h1>
-    <ul class="tile_wrapper" v-for="item in transactions" :key="item.id">
-      <li class="tile" @click="restoreLastTransaction(item)">
-        <h1>{{ item.name }}</h1>
-        <div class="details">
-          <span class="amount">{{ item.amount }}</span> x
-          <span class="price">{{ item.salePrice ? item.salePrice : item.price }}</span>
-        </div>
-      </li>
-      <!-- <product-tile :coffee="item" /> -->
-    </ul>
+    <div
+      class="single_transaction"
+      v-for="(transaction, index) in transactions"
+      :key="transaction.id"
+      :class="{ open_qr: index === openTransactionIndex }"
+      @click.prevent="restoreLastTransaction(transaction, index)"
+    >
+      <div class="accordion_header">
+        <template v-for="item in transaction" :key="item.id">
+            <h2>{{ item.name }}</h2>
+        </template>
+      </div>
+      <qr-item v-if="index === openTransactionIndex" :summary="summary" />
+    </div>
   </section>
+
+  <section class="empty" v-show="emptyTransactions">
+      <h2>Oops, looks like you don't have any transactions!</h2>
+      <!-- <p>Change that by clicking on the cart icon or order via button "buy"</p> -->
+      <p>Have some difficulties? Remember, you can always order yor fav coffee at the counter :)</p>
+    </section>
 </template>
 
 <script>
 import { reactive } from 'vue'
-// import ProductTile from '@/components/productTile.vue'
+
+import QrItem from '../components/qrItem.vue'
 export default {
   name: 'transactionPage',
   components: {
-    // ProductTile
+    QrItem
   },
   data() {
     return {
-      transactions: reactive([])
+      transactions: reactive([]),
+      summary: '',
+      lastTransaction: false,
+      openTransactionIndex: null,
+      emptyTransactions: true
     }
   },
+  // computed: {
+  //   emptyTransactions(){
+  //     return (localStorage.getItem('orderedItems') && JSON.parse(localStorage.getItem('orderedItems')).length === 0) ? false : true
+  //   }
+  // },
   methods: {
     transactionsList() {
       let list = JSON.parse(localStorage.getItem('orderedItems'))
-      console.log(list)
-      this.transactions = list
+      if(list && list.length > 0){
+        list.forEach((i) => {
+          this.transactions.push(i)
+        })
+        this.emptyTransactions = false 
+      } else {
+        console.log('elo')
+        this.emptyTransactions = true 
+      }
     },
-    restoreLastTransaction(item) {
-      console.log(item.id)
-      this.$router.push({ name: 'summary', params: { id: item.id } })
-    },
-    openSum() {
-      this.$router.push({ name: 'summary' })
+    restoreLastTransaction(item, index) {
+      let totalPrice = 0
+      this.summary = ''
+      item.forEach((i) => {
+        this.summary += `${i.name} - ${i.amount} x ${i.salePrice ? i.salePrice : i.price}; `
+        totalPrice += (i.salePrice < i.price ? i.salePrice : i.price) * i.amount
+      })
+      this.summary += ` Total: ${totalPrice} zł`
+      if (this.openTransactionIndex === index) {
+        this.openTransactionIndex = null
+      } else {
+        this.openTransactionIndex = index
+      }
     }
   },
   mounted() {
@@ -46,5 +82,3 @@ export default {
   }
 }
 </script>
-
-<style></style>
