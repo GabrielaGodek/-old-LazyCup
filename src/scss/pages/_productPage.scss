@@ -112,5 +112,7 @@
   align-items: center;
   background-color: $header_color;
   min-height: 50px;
-  @include btn;
+  .buy {
+    @include btn;
+  }
 }

@@ -21,7 +21,6 @@ $header_height: 52px;
 
 $footer_height: 134px;
 $d_footer_height: 50px;
-$footer_color: #f9bc60;
 
 $menu_color: #e8e4e6;
 
@@ -41,7 +40,6 @@ $open_menu_width: 293px;
 }
 
 @mixin btn {
-  .buy {
     appearance: none;
     border: none;
     background-color: $cta_color;
@@ -53,7 +51,7 @@ $open_menu_width: 293px;
     gap: 10px;
     color: #fff;
     font-size: 16px;
-}
+    height: 34px;
 }
 
 @font-face {

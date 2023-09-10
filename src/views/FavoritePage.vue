@@ -1,5 +1,5 @@
 <script>
-import { ref } from 'vue'
+// import { ref } from 'vue'
 import { mapStores } from 'pinia'
 import { useOrdersStore } from '@/store/orders'
 import ProductTile from '@/components/productTile.vue'
@@ -12,19 +12,17 @@ export default {
   data() {
     return {
       // CoffeesList: [],
-      emptyFav: ref(false)
+      // emptyFav: ref(false)
       // CoffeesList: reactive([])
     }
   },
   computed: {
-    ...mapStores(useOrdersStore)
+    ...mapStores(useOrdersStore),
+    emptyFav() {
+      return ((this.ordersStore.coffees.filter((i) => i.isFav == true).length !== 0) ? false : true)
+    }
   },
   updated() {
-    if (this.ordersStore.coffees.filter((i) => i.isFav == true).length !== 0) {
-        this.emptyFav = false
-      } else {
-        this.emptyFav = true
-      }
   }
 }
 </script>
@@ -37,21 +35,10 @@ export default {
         <product-tile :coffee="item" />
       </div>
     </template>
-    <div v-show="emptyFav" class="empty_fav">
+    <div v-show="emptyFav" class="empty">
       <h2>Oops, looks like you don't have favorite coffees!</h2>
       <p>Click on the heart icon to add coffee to the list</p>
     </div>
   </section>
 </template>
 
-<style scoped lang="scss">
-.wrapper.listing.empty {
-  height: calc(100vh - (52px * 2));
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-</style>

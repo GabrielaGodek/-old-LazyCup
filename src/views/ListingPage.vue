@@ -56,9 +56,9 @@ export default {
   }
 }
 </script>
-
+Ŕ
 <template>
-  <div class="wrapper listing">
+  <section class="wrapper listing">
     <template v-if="this.badReq === false">
       <div class="tile_wrapper" v-for="item in this.ordersStore.coffees" :key="item.id">
         <ProductTile :coffee="item" />
@@ -71,7 +71,7 @@ export default {
             <p>Try refresh the page or order your coffee at the counter</p>
         </div>
     </template> -->
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

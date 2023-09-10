@@ -1,8 +1,7 @@
 <template>
-    
   <section class="qr_code">
     <figure class="qrcode">
-    <QRCode
+      <QRCode
         :value="summary"
         level="H"
         :QRSize="294"
@@ -10,62 +9,63 @@
         :logoSize="70"
         logoBackgroundColor="white"
       />
-    <img
-      class="qrcode__image"
-      src="@/assets/cup.svg"
-      alt="LazyCup"
-    />
-  </figure>
+      <img class="qrcode__image" src="@/assets/cup.svg" alt="LazyCup" />
+    </figure>
 
-      <p>To collect order scan the code at the counter</p>  
-</section>
-
-
+    <p>To collect order scan the code at the counter</p>
+  </section>
 </template>
 
 <script>
-  import QRCode from "vue-qrcode-dynamic"
+import QRCode from 'vue-qrcode-dynamic'
 
-  import { mapStores } from 'pinia'
-  import { useOrdersStore } from '@/store/orders'
+import { reactive } from 'vue'
+import { mapStores } from 'pinia'
+import { useOrdersStore } from '@/store/orders'
 
-  export default {
-    name: 'summaryPage',
-    props: {
-      orderValue: {
-        type: Object
-      }
-    },
-    data() {
-      return {
-        summary: '',
-        // totalPrice: 0
-      }
-    },
-    components: {
-      QRCode
-    },
-    computed: {
-        ...mapStores(useOrdersStore)
-    },
-    methods: {
-        createOrder(){
-          
-            let totalPrice
-            this.useOrdersStore.orders.forEach(i => {
-                let QRvalue = `${i.name} - ${i.amount} x ${i.salePrice ? i.salePrice : i.price}; `
-                this.summary += QRvalue
-
-                totalPrice += (i.salePrice ? i.salePrice : i.price) * i.amount
-            })
-            this.summary += `Total: ${totalPrice}`
-        },
-    },
-    mounted() {
-        this.createOrder()
+export default {
+  name: 'SummaryPage',
+  data() {
+    return {
+      summary: '',
+      ordersData: reactive([]),
+      orderedCoffee: reactive([])
     }
-
+  },
+  props: ['id'],
+  components: {
+    QRCode
+  },
+  computed: {
+    ...mapStores(useOrdersStore)
+  },
+  methods: {
+    createOrder() {
+      // console.log(id)
+      if(this.ordersStore.orders.length > 0){
+        this.ordersData = this.ordersStore.orders
+  
+        // console.log(this.$route)
+        // console.log(this.$router.currentRoute.value.params)
+        console.log(this.ordersStore.orders)
+  
+        let totalPrice = 0
+        this.ordersData.forEach(i => {
+            let QRvalue = `${i.name} - ${i.amount} x ${i.salePrice ? i.salePrice : i.price}; `
+            this.summary += QRvalue
+            totalPrice += (i.salePrice !== i.price ? i.salePrice : i.price) * i.amount
+        })
+        this.summary += `Total: ${totalPrice} zł`
+        this.orderedCoffee.push(...this.ordersData)
+        localStorage.setItem('orderedItems', JSON.stringify(this.orderedCoffee))
+        this.ordersStore.orders = []
+      }
+    }
+  },
+  mounted() {
+    this.createOrder()
   }
+}
 </script>
 
 <style scoped lang="scss">
@@ -83,8 +83,8 @@
   }
 }
 .qrcode {
-background-color: #fff;
-padding: 10px;
+  background-color: #fff;
+  padding: 10px;
   display: inline-block;
   font-size: 0;
   margin-bottom: 0;

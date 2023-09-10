@@ -12,15 +12,17 @@
     .single_order {
       border-radius: 4px;
       background: rgba(172, 115, 73, 0.23);
-      margin: 10px 15px;
+      margin: 10px 0;
       padding: 9px 12px;
       max-height: 115px;
       &:first-of-type {
-        margin-top: 32px;
+        margin-top: 12px;
       }
       .tile {
         display: flex;
         height: 97px;
+        gap: 32px;
+        justify-content: space-between;
 
         .image {
 
@@ -34,6 +36,7 @@
           flex-direction: row;
           flex-wrap: wrap;
           justify-content: space-between;
+          align-items: center;
           .title {
             flex-basis: 100%;
             color: #000;
@@ -60,13 +63,14 @@
       }
       .counter {
         display: flex;
+        max-width: 132px;
         // justify-content: end;
+        height: 30px;
         input {
           appearance: none;
           border: none;
-          background-color: $details_color;
+          background-color: $cta_color;
           color: $header_color;
-          height: 30px;
           &[type='button'] {
             // max-width: 30px;
             width: 100%;
@@ -89,20 +93,25 @@
   }
   .summary {
     position: fixed;
-    height: 244px;
+    height: calc($header_height + 244px);
     bottom: 0;
     right: 0;
     left: 0;
     // width: 100%;
     background-color: $header_color;
-    border-radius: 10px;
-    padding: 27px $header_padding 52px;
+    // border-radius: 10px;
+    padding: 20px 10px calc($header_height + 30px);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
     .row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 24px;
-      margin: 5px 0;
+      // margin: 5px 0;
     }
     h2 {
       color: #000;
@@ -138,14 +147,17 @@
       justify-content: center;
       align-items: center;
       min-height: 50px;
-      a[href^="/cart"] {
+      button.checkout {
         width: 100%;
-        button {
-          width: 100%;
-        }
+        // padding: 5px 25px;
+        @include btn;
+      
+      }
+      .back {
+        min-width: 100px;
+        text-align: center;
       }
     }
   }
-  @include btn;
   
 }

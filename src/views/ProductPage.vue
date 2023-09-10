@@ -46,18 +46,20 @@ export default {
         .catch()
     },
     addToCart(cartItem) {
-      let coffeeConfig = {
-        id: cartItem.id,
-        amount: 1,
-        name: cartItem.name,
-        price: cartItem.price,
-        salePrice: cartItem.salePrice ? cartItem.salePrice : cartItem.price,
-        image: cartItem.image
+      if (this.$el.querySelector('button').innerText == this.btnBuy) {
+        this.$router.push({ name: 'cart' })
+      } else {
+        let coffeeConfig = {
+          id: cartItem.id,
+          amount: 1,
+          name: cartItem.name,
+          price: cartItem.price,
+          salePrice: cartItem.salePrice ? cartItem.salePrice : cartItem.price,
+          image: cartItem.image
+        }
+        this.addItem(coffeeConfig)
+        this.btnText = this.btnBuy
       }
-      this.addItem(coffeeConfig)
-
-      this.btnText = this.btnBuy
-      // this.$router.push({name: 'cart'})
     }
   },
 

@@ -8,7 +8,6 @@ export const useOrdersStore = defineStore('orders', {
   }),
   actions: {
     addItem(cartItem) {
-      // console.log(this.orders)
       if (!this.orders.some((el) => el.id === cartItem.id)) {
         this.orders.push({
           id: cartItem.id,
@@ -25,21 +24,15 @@ export const useOrdersStore = defineStore('orders', {
       }
     },
     removeItem(cartItem) {
-      console.log(this.orders)
-
-      let duplicateCoff = this.orders.find((el) => el.id === cartItem.id)
-      console.log(duplicateCoff)
-      if(duplicateCoff) {
-        let i = this.orders.indexOf(duplicateCoff)
-        console.log(i)
-        console.log(this.orders[i])
-        if(this.orders[i].amount != 0) {
-          this.orders[i].amount--
-        } else {
-          this.orders.splice(i, 1)
-        }
+      let i = this.orders.indexOf(cartItem)
+      if (this.orders[i].amount != 1) {
+        this.orders[i].amount--
+      } else {
+        this.orders = this.orders.filter((item) => {
+          return item.id != cartItem.id
+        })
       }
     }
   },
-  // persist: true
+  persist: true
 })

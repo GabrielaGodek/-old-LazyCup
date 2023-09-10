@@ -24,7 +24,8 @@ const router = createRouter({
     {
       path: '/coffee/:id',
       name: 'coffee',
-      component: ProductPage
+      component: ProductPage,
+      props: true
     },
     {
       path: '/transactions',
@@ -44,9 +45,9 @@ const router = createRouter({
     {
       path: '/summary',
       name: 'summary',
-      component: SummaryPage
-    },
-
+      component: SummaryPage,
+      props: true
+    }
   ]
 })
 
