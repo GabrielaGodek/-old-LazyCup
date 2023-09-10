@@ -31,7 +31,7 @@ section {
   display: none;
 }
 
-.empty {
+section.empty {
   height: calc(100vh - 104px);
   margin: 0 auto;
   display: flex;
@@ -191,6 +191,34 @@ footer nav ul .router-link-active img {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
+}
+
+.single_transaction {
+  background: rgba(172, 115, 73, 0.23);
+  margin: 10px 0;
+  padding: 9px 12px;
+  border-radius: 4px;
+  max-height: 200px;
+  transition: all 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+.single_transaction .accordion_header {
+  display: flex;
+  gap: 20px;
+}
+.single_transaction .accordion_header h2 {
+  display: inline-block;
+}
+.single_transaction.open_qr {
+  max-height: 2000px;
+}
+.single_transaction.open_qr figure {
+  text-align: center;
+  margin: 20px 0;
+}
+.single_transaction.open_qr p {
+  display: none;
 }
 
 .welcome {

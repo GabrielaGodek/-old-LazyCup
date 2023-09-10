@@ -44,11 +44,17 @@ export default {
   methods: {
     ...mapActions(useOrdersStore, ['addItem', 'removeItem']),
     makeTransactionsList() {
-      console.log('elo')
       this.orderedItems.push(this.ordersStore.orders)
-      // console.log(this.orderedItems)
-      // localStorage.setItem('orderedItems', JSON.stringify(this.orderedItems))
-      // clear basket
+
+      let tmp = JSON.parse(localStorage.getItem('orderedItems')) || []
+      if(localStorage.getItem('orderedItems') !== null) {
+          tmp.push(Array.from(...this.orderedItems))
+          localStorage.setItem('orderedItems', JSON.stringify(tmp))
+        } else {
+          tmp.push(this.orderedItems)
+          localStorage.setItem('orderedItems', JSON.stringify(this.orderedItems))
+        }
+
       this.$router.push({
         name: 'summary',
       })
