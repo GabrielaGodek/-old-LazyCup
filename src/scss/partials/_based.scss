@@ -26,7 +26,7 @@ section {
 .product_page .action {
   display: none;
 }
-.empty {
+section.empty {
   height: calc(100vh - (52px * 2));
   margin: 0 auto;
   display: flex;

@@ -43,7 +43,7 @@ const router = createRouter({
       component: FavoritePage
     },
     {
-      path: '/summary',
+      path: '/summary/',
       name: 'summary',
       component: SummaryPage,
       props: true
