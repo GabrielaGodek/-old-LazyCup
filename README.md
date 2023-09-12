@@ -14,8 +14,8 @@ Single Page Application that allows you to buy your favorite coffee without wait
 - SASS/CSS3
 
 ## Installation
-1. Clone the repository `git clone https://github.com/GabrielaGodek/Coffee-Shop.git`
-2. Change directory `cd Coffee-Shop`
+1. Clone the repository `git clone https://github.com/bwrobel99/coffee-app-fe.git`
+2. Change directory `cd coffee-app-fe`
 3. Install dependencies `npm install`
 4. At the terminal run the command `npm run dev`
 5. It will open localhost at `http://127.0.0.1:5173/`

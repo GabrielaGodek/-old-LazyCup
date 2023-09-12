@@ -3,7 +3,6 @@ import '@/scss/style.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-// import { sitemapMiddleware } from 'sitemapMiddleware'
 import piniaPluginPersistedState from "pinia-plugin-persistedstate"
 
 
@@ -19,5 +18,3 @@ app.use(pinia)
 app.use(router)
 
 app.mount('#app')
-
-// app.get('/sitemap.xml', sitemapMiddleware())
