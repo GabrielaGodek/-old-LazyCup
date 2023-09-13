@@ -20,9 +20,10 @@
   }
   &.open_qr {
     max-height: 2000px;
-    figure {
+    figure.qrcode {
       text-align: center;
-      margin: 20px 0;
+      margin: 20px auto;
+      width: 334px;
     }
     p {
       display: none;

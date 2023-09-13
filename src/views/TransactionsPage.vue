@@ -1,7 +1,5 @@
 <template>
   <section class="wrapper transactions" v-show="!emptyTransactions">
-    <!-- {{this.transactions}} -->
-
     <h1>Last transactions</h1>
     <div
       class="single_transaction"
@@ -58,7 +56,6 @@ export default {
         })
         this.emptyTransactions = false 
       } else {
-        console.log('elo')
         this.emptyTransactions = true 
       }
     },

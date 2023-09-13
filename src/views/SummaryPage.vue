@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     createOrder() {
-      console.log(this.ordersStore.orders)
       if (this.ordersStore.orders.length > 0) {
         this.ordersData = this.ordersStore.orders
 
@@ -40,7 +39,6 @@ export default {
           totalPrice += (i.salePrice < i.price ? i.salePrice : i.price) * i.amount
         })
         this.summary += ` Total: ${totalPrice} zł`
-        console.log(this.summary)
         this.ordersStore.orders = []
       }
     }
@@ -51,9 +49,20 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .qr_code {
-  display: block;
+  width: 100%;
+  // width: 294px;
+  height: calc(100vh - (52px * 2));
   margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  p {
+    width: 294px;
   }
+}
 </style>

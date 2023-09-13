@@ -17,9 +17,6 @@
 <script>
 import QRCode from 'vue-qrcode-dynamic'
 import { reactive } from 'vue'
-// import { useRouter } from 'vue-router'
-// import { mapStores } from 'pinia'
-// import { useOrdersStore } from '@/store/orders'
 export default {
   name: 'qrItem',
   components: {
@@ -27,9 +24,7 @@ export default {
   },
   data() {
     return {
-      // summary: '',
       ordersData: reactive([])
-      //   orderedCoffee: reactive([])
     }
   },
   props: {
@@ -37,50 +32,10 @@ export default {
       type: String
     }
   }
-  // computed: {
-  //   ...mapStores(useOrdersStore)
-  // },
-  // methods: {
-  //   createOrder() {
-  //     // console.log(id)
-  //     if (this.ordersStore.orders.length > 0) {
-  //       this.ordersData = this.ordersStore.orders
-
-  //       let totalPrice = 0
-  //       this.ordersData.forEach((i) => {
-  //         let QRvalue = `${i.name} - ${i.amount} x ${i.salePrice ? i.salePrice : i.price}; `
-  //         this.summary += QRvalue
-  //         totalPrice += (i.salePrice !== i.price ? i.salePrice : i.price) * i.amount
-  //       })
-  //       this.summary += `Total: ${totalPrice} zł`
-  //       this.orderedCoffee.push(...this.ordersData)
-  //       localStorage.setItem('orderedItems', JSON.stringify(this.orderedCoffee))
-  //       this.ordersStore.orders = []
-  //     }
-  //   }
-  // },
-  // mounted() {
-  //   this.createOrder()
-  // }
 }
 </script>
 
 <style scoped lang="scss">
-.qr_code {
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  height: calc(100vh - (52px * 2));
-  // margin: 0 auto;
-  position: relative;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  p {
-    width: 294px;
-  }
-}
 .qrcode {
   background-color: #fff;
   padding: 10px;
