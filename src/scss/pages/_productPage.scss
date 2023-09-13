@@ -2,21 +2,12 @@
 
 .product_page {
   height: 100%;
-  // flex-grow: 1;
-  // display: flex;
-  // flex-direction: column;
+
   .product_tile {
-    // flex-grow: 1;
     height: 100%;
-    // display: flex;
-    // flex-direction: column;
   }
   .tile {
-    // flex-grow: 1;
     height: 100%;
-    // width: 100vw;
-    // display: flex;
-    // flex-direction: column;
     background-color: $bg_color;
 
     .action {
@@ -44,7 +35,6 @@
       flex-direction: column;
       justify-content: flex-start;
       color: #000;
-      // font-family: Cabinet Grotesk;
       font-size: 18px;
       font-style: normal;
       font-weight: 400;
@@ -53,7 +43,6 @@
       .title {
         margin: 20px 0 0 0;
         color: #000;
-        font-family: Cabinet Grotesk;
         font-size: 34px;
         font-style: normal;
         font-weight: 400;
@@ -63,7 +52,6 @@
         text-align: justify;
         order: 1;
         color: #000;
-        // font-family: Cabinet Grotesk;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -80,7 +68,6 @@
         gap: 20px;
         .new_price {
           color: #db1313;
-          // font-family: Cabinet Grotesk;
           font-size: 34px;
           font-style: normal;
           font-weight: 400;
@@ -91,7 +78,6 @@
         }
         .old_price {
           // color: #000;
-          // font-family: Cabinet Grotesk;
           font-size: 25px;
           font-style: normal;
           font-weight: 400;

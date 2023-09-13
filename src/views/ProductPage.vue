@@ -28,7 +28,8 @@ export default {
       coffeeData: reactive([]),
       btnText: ref('Add'),
       btnBuy: ref('Go to cart'),
-      backText: ref('Back')
+      backText: ref('Back'),
+      isAdded: false
     }
   },
   computed: {
@@ -46,7 +47,7 @@ export default {
         .catch()
     },
     addToCart(cartItem) {
-      if (this.$el.querySelector('button').innerText == this.btnBuy) {
+      if (this.isAdded) {
         this.$router.push({ name: 'cart' })
       } else {
         let coffeeConfig = {
@@ -58,6 +59,7 @@ export default {
           image: cartItem.image
         }
         this.addItem(coffeeConfig)
+        this.isAdded = true
         this.btnText = this.btnBuy
       }
     }
@@ -76,7 +78,7 @@ export default {
     <productTile :coffee="coffeeData" />
     <div class="add_to_cart">
       <back :btn-text="backText" />
-      <buttonItem :btn-text="btnText" @click.prevent="addToCart(coffeeData)" />
+      <buttonItem :btn-text="btnText" @click="addToCart(coffeeData)" />
     </div>
   </div>
 </template>

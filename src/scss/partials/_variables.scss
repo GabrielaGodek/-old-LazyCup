@@ -10,7 +10,7 @@ $xs_breakpoint: 350px;
 
 $bg_color: #f0c9ba;
 $header_color: #fff;
-$details_color: #CA8F7A;
+$details_color: #ca8f7a;
 $promo_color: #000;
 $cta_color: #965858;
 $text_color: #000;
@@ -29,29 +29,29 @@ $header_padding: 32px;
 $open_menu_width: 293px;
 
 @mixin f_center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @mixin shadow {
-    -webkit-box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
-    box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
+  -webkit-box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
+  box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
 }
 
 @mixin btn {
-    appearance: none;
-    border: none;
-    background-color: $cta_color;
-    padding: 5px vw(408, 50);
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    color: #fff;
-    font-size: 16px;
-    height: 34px;
+  appearance: none;
+  border: none;
+  background-color: $cta_color;
+  padding: 5px vw(408, 50);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 16px;
+  height: 34px;
 }
 
 @font-face {

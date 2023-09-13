@@ -60,12 +60,14 @@ a {
   display: none;
 }
 
-h2,
 h1,
+h2,
+h3,
 p,
 span,
 div {
   font-family: "mainFont";
+  font-weight: normal;
 }
 
 .header {
@@ -155,7 +157,7 @@ footer nav ul .router-link-active img {
 .product_tile .tile .description {
   padding: 19px 5px;
   flex: 1 1 50%;
-  background-color: #CA8F7A;
+  background-color: #ca8f7a;
   border-radius: 10px 10px 0 0;
   display: flex;
   flex-direction: column;
@@ -167,7 +169,6 @@ footer nav ul .router-link-active img {
   font-weight: 800;
   color: #000;
   text-align: center;
-  font-family: Cabinet Grotesk;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -181,7 +182,6 @@ footer nav ul .router-link-active img {
   color: #000;
   color: #000;
   text-align: center;
-  font-family: Cabinet Grotesk;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -710,7 +710,6 @@ footer nav ul .router-link-active img {
 .product_page .tile .description .title {
   margin: 20px 0 0 0;
   color: #000;
-  font-family: Cabinet Grotesk;
   font-size: 34px;
   font-style: normal;
   font-weight: 400;
@@ -896,6 +895,7 @@ footer nav ul .router-link-active img {
   border: none;
   background-color: #965858;
   color: #fff;
+  border-radius: 0;
 }
 .cart_page section.orders .single_order .counter input[type=button] {
   width: 100%;
@@ -946,7 +946,6 @@ footer nav ul .router-link-active img {
 }
 .cart_page .summary .total * {
   color: #000;
-  font-family: Cabinet Grotesk;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

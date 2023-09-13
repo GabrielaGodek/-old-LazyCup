@@ -40,7 +40,6 @@
           .title {
             flex-basis: 100%;
             color: #000;
-            // font-family: Cabinet Grotesk;
             font-size: 20px;
             font-style: normal;
             font-weight: 400;
@@ -52,7 +51,7 @@
             align-items: center;
             .price {
               color: #000;
-              // font-family: Cabinet Grotesk;
+
               font-size: 20px;
               font-style: normal;
               font-weight: 400;
@@ -71,6 +70,7 @@
           border: none;
           background-color: $cta_color;
           color: $header_color;
+          border-radius: 0;
           &[type='button'] {
             // max-width: 30px;
             width: 100%;
@@ -115,7 +115,6 @@
     }
     h2 {
       color: #000;
-      // font-family: Cabinet Grotesk;
       font-size: 20px;
       font-style: normal;
       font-weight: 400;
@@ -124,7 +123,6 @@
     }
     .discount * {
       color: #000;
-      // font-family: Cabinet Grotesk;
       font-size: 12px;
       font-style: normal;
       font-weight: 400;
@@ -132,7 +130,6 @@
     }
     .total * {
       color: #000;
-      font-family: Cabinet Grotesk;
       font-size: 16px;
       font-style: normal;
       font-weight: 400;

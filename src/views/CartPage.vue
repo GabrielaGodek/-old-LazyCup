@@ -47,16 +47,15 @@ export default {
       this.orderedItems.push(this.ordersStore.orders)
 
       let tmp = JSON.parse(localStorage.getItem('orderedItems')) || []
-      if(localStorage.getItem('orderedItems') !== null) {
-          tmp.push(Array.from(...this.orderedItems))
-          localStorage.setItem('orderedItems', JSON.stringify(tmp))
-        } else {
-          tmp.push(this.orderedItems)
-          localStorage.setItem('orderedItems', JSON.stringify(this.orderedItems))
-        }
-
+      if (localStorage.getItem('orderedItems') !== null) {
+        tmp.push(Array.from(...this.orderedItems))
+        localStorage.setItem('orderedItems', JSON.stringify(tmp))
+      } else {
+        tmp.push(this.orderedItems)
+        localStorage.setItem('orderedItems', JSON.stringify(this.orderedItems))
+      }
       this.$router.push({
-        name: 'summary',
+        name: 'summary'
       })
     },
     addProducts(item) {
