@@ -56,5 +56,7 @@ $open_menu_width: 293px;
 
 @font-face {
   font-family: 'mainFont';
-  src: url('https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/CabinetGrotesk_Complete/Fonts/OTF/CabinetGrotesk-Regular.otf');
+  src: url('https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/Montserrat/static/Montserrat-Light.ttf')
+    format('TrueType');
+  font-display: swap;
 }
