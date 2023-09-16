@@ -11,6 +11,6 @@ export default {
 </script>
 
 <template>
-    <a class="back" @click="this.$router.go(-1)"
+    <a class="back" aria-label="Go back" @click="this.$router.go(-1)"
     >{{ btnText }}</a>
 </template>

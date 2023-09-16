@@ -6,7 +6,7 @@
     <!-- <div class="cls_box"> -->
       <div class="wrapper">
         <div class="logo">
-          <router-link :to="{ name: 'products' }">
+          <router-link aria-label="Start ordering by clicking this image" :to="{ name: 'products' }">
           <!-- <img src="../assets/logo_startpage.svg" alt="Coffee Shop" class="bounce-in-fwd"/> -->
           <svg width="171" height="341" viewBox="0 0 171 341" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M161.744 141.483H8.7157L18.0796 116.486C19.9393 111.521 24.9287 108.2 30.5268 108.2H139.933C145.531 108.2 150.521 111.521 152.38 116.486L161.744 141.483Z" fill="#C86A58" class="svg-elem-1"></path>
@@ -33,10 +33,9 @@
         </router-link>
         </div>
 
-        <router-link :to="{ name: 'products' }">
+        <router-link aria-label="Start ordering by clicking this image" :to="{ name: 'products' }">
           <h1 class="clickToStart">Click here to order</h1>
         </router-link>
       </div>
-    <!-- </div> -->
   </div>
 </template>

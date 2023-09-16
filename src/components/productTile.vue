@@ -49,30 +49,28 @@ export default {
     <div class="tile">
       <div class="action">
         <div class="cart">
-          <img src="@/assets/cart_icon.svg" alt="Add to your basket" @click="basketShort(coffee)" />
+          <img width="29" height="28" src="@/assets/cart_icon.svg" alt="Add to your basket" @click="basketShort(coffee)" />
         </div>
         <div class="fav">
           <img
             v-if="coffee.isFav && coffee.isFav === true"
             src="../assets/fav_check1.svg"
+            width="29" height="28"
             alt="Add to your favorites"
             @click="addToFav(coffee)"
           />
           <img
             v-else
             src="../assets/favorite_icon.svg"
+            width="29" height="28"
             alt="Add to your favorites"
             @click="addToFav(coffee)"
           />
         </div>
       </div>
       <div class="image" :id="coffee.id" @click="this.$router.push({ name: 'coffee', params: { id: coffee.id } })">
-        <!-- <picture> -->
-        <!-- <source media="(min-width: 800px)" srcset=""> -->
         <img :src="coffee.image" :alt="coffee.name" />
-        <!-- </picture> -->
       </div>
-      <!-- <div class="description" @click="this.$router.push(`/coffee/${coffee.id}`)" :id="coffee.id"> -->
       <div
         class="description"
         @click="this.$router.push({ name: 'coffee', params: { id: coffee.id } })"

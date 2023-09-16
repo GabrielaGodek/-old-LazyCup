@@ -9,13 +9,6 @@ export default {
   components: {
     ProductTile
   },
-  data() {
-    return {
-      // CoffeesList: [],
-      // emptyFav: ref(false)
-      // CoffeesList: reactive([])
-    }
-  },
   computed: {
     ...mapStores(useOrdersStore),
     emptyFav() {
@@ -29,7 +22,7 @@ export default {
 
 <template>
   <section class="wrapper listing" :class="{ empty: emptyFav }">
-    <!-- <h1>Favorite</h1> -->
+    <h1>Favorite</h1>
     <template v-for="item in this.ordersStore.coffees" :key="item.id">
       <div class="tile_wrapper" v-if="item.isFav && item.isFav === true">
         <product-tile :coffee="item" />

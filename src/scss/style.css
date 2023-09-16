@@ -124,12 +124,17 @@ footer nav ul li img {
   top: 50%;
   transform: translate(-50%, -50%);
 }
-footer nav ul .router-link-active {
-  background-color: #AC7349;
+footer nav ul a {
+  width: 35px;
+  height: 35px;
+  display: block;
+}
+footer nav ul a.router-link-active {
+  background-color: #ac7349;
   padding-left: 1px;
   border-radius: 4px;
 }
-footer nav ul .router-link-active img {
+footer nav ul a.router-link-active img {
   filter: invert(100%);
 }
 
@@ -809,24 +814,40 @@ footer nav ul .router-link-active img {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+.listing h1 {
+  grid-column: span 2;
+  margin-bottom: 20px;
+}
 @media (max-width: 350px) {
   .listing {
     grid-template-columns: 1fr;
+  }
+  .listing h1 {
+    grid-column: span 1;
   }
 }
 @media (min-width: 600px) {
   .listing {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .listing h1 {
+    grid-column: span 3;
+  }
 }
 @media (min-width: 800px) {
   .listing {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+  .listing h1 {
+    grid-column: span 4;
+  }
 }
 @media (min-width: 1280px) {
   .listing {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .listing h1 {
+    grid-column: span 6;
   }
 }
 

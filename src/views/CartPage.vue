@@ -77,7 +77,7 @@ export default {
       <div class="single_order" v-for="item in this.ordersStore.orders" :key="item.id">
         <div class="tile">
           <div class="image" :id="item.id">
-            <img :src="item.image" :alt="item.name" />
+            <img width="96" height="96" :src="item.image" :alt="item.name" />
           </div>
           <div class="description" :id="item.id">
             <h1 class="title">
@@ -121,13 +121,9 @@ export default {
         <span class="amount"> {{ totalPrice }} zł </span>
       </div>
       <div class="sum">
-        <!-- {{ this.ordersStore.orders }} -->
-        <!-- <router-link :to="{ name: 'summary', state: { this.ordersStore.orders } }"> -->
-
         <button type="button" class="checkout" @click="makeTransactionsList">
           {{ btnText }}
         </button>
-        <!-- </router-link> -->
         <backItem :btn-text="'Back'" />
       </div>
     </section>

@@ -52,7 +52,6 @@ export default {
 <style scoped lang="scss">
 .qr_code {
   width: 100%;
-  // width: 294px;
   height: calc(100vh - (52px * 2));
   margin: 0 auto;
   position: relative;

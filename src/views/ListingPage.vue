@@ -1,4 +1,4 @@
-<script setup></script>
+
 <script>
 import { ref } from 'vue'
 import { mapStores } from 'pinia'
@@ -59,18 +59,12 @@ export default {
 Ŕ
 <template>
   <section class="wrapper listing">
+    <h1>Coffees</h1>
     <template v-if="this.badReq === false">
       <div class="tile_wrapper" v-for="item in this.ordersStore.coffees" :key="item.id">
         <ProductTile :coffee="item" />
       </div>
     </template>
-    <!-- <template v-else>
-        <div class="empty_res">
-            <h2>404</h2>
-            <p>Ups..., we have a problem!</p>
-            <p>Try refresh the page or order your coffee at the counter</p>
-        </div>
-    </template> -->
   </section>
 </template>
 

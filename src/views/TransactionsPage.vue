@@ -19,7 +19,7 @@
 
   <section class="empty" v-show="emptyTransactions">
       <h2>Oops, looks like you don't have any transactions!</h2>
-      <!-- <p>Change that by clicking on the cart icon or order via button "buy"</p> -->
+     
       <p>Have some difficulties? Remember, you can always order yor fav coffee at the counter :)</p>
     </section>
 </template>
@@ -42,11 +42,6 @@ export default {
       emptyTransactions: true
     }
   },
-  // computed: {
-  //   emptyTransactions(){
-  //     return (localStorage.getItem('orderedItems') && JSON.parse(localStorage.getItem('orderedItems')).length === 0) ? false : true
-  //   }
-  // },
   methods: {
     transactionsList() {
       let list = JSON.parse(localStorage.getItem('orderedItems'))
