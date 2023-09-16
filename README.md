@@ -17,6 +17,9 @@ Single Page Application that allows you to buy your favorite coffee without wait
 With this project I was able to get friendly with new tool like Figma and with the whole concept of Mobile Design.
 [View on Figma](https://www.figma.com/file/mRftKP3EVAnQN22cLKDYcR/LazyCup?type=design&node-id=0%3A1&mode=design&t=JZraB6xgt4mNJTGm-1)
 
+## Lighthouse report
+![lighthouse report](./lazycup_lighthouse.png)
+
 ## Installation
 1. Clone the repository `git clone https://github.com/GabrielaGodek/LazyCup.git`
 2. Change directory `cd lazycup`
