@@ -37,14 +37,23 @@ export default {
   },
   methods: {
     ...mapActions(useOrdersStore, ['addItem']),
-    // ...mapActions(useOrdersStore, { addToCart: 'addItemToOrder' }),
-    getSpecCoffee(id) {
-      const url =
-        'https://my-json-server.typicode.com/GabrielaGodek/CoffeeShop-Database/coffees/' + id
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => (this.coffeeData = data))
-        .catch()
+    async getSpecCoffee(id) {
+
+      try {
+        const response = await fetch(
+          `https://my-json-server.typicode.com/GabrielaGodek/CoffeeShop-Database/coffees/${id}`
+        )
+
+        if (response.ok) {
+          const data = await response.json()
+          this.coffeeData = data
+        } else {
+          const error = response
+          throw error
+        }
+      } catch (error) {
+        console.error(error)
+      }
     },
     addToCart(cartItem) {
       if (this.isAdded) {
@@ -56,7 +65,8 @@ export default {
           name: cartItem.name,
           price: cartItem.price,
           salePrice: cartItem.salePrice ? cartItem.salePrice : cartItem.price,
-          image: cartItem.image
+          image: cartItem.image,
+          date: new Date().toJSON().slice(0, 10).replace(/-/g, '/')
         }
         this.addItem(coffeeConfig)
         this.isAdded = true
@@ -67,18 +77,18 @@ export default {
 
   beforeMount() {
     const router = useRouter()
-    const id = router.currentRoute.value.params.id
+    const id = Number(router.currentRoute.value.params.id)
     this.getSpecCoffee(id)
   }
 }
 </script>
 
 <template>
-  <div class="product_page">
+  <section class="wrapper product_page">
     <productTile :coffee="coffeeData" />
     <div class="add_to_cart">
       <back :btn-text="backText" />
       <buttonItem :btn-text="btnText" @click="addToCart(coffeeData)" />
     </div>
-  </div>
+  </section>
 </template>

@@ -4,10 +4,11 @@
   //   padding: 20px 20px 70px 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  h1 {
+  gap: 15px;
+  & > h1 {
     grid-column: span 2;
     margin-bottom: 20px;
+    font-weight: 600;
   }
   @media (max-width: $xs_breakpoint) {
     grid-template-columns: 1fr;

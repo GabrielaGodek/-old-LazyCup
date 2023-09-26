@@ -19,6 +19,6 @@ export default {
 
 <template>
     <button class="buy" >
-        {{ btnText }} <img src="/arrow.svg" alt="add coffee to cart">
+        {{ btnText }} <img src="/public/arrow.svg" alt="add coffee to cart">
     </button>
 </template>

@@ -10,14 +10,6 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      // fav: [],
-    }
-  },
-  components: {
-    // actionItems
-  },
   computed: {
     ...mapWritableState(useOrdersStore, ['coffees']),
     ...mapStores(useOrdersStore)
@@ -35,7 +27,8 @@ export default {
         name: cartItem.name,
         price: cartItem.price,
         salePrice: cartItem.salePrice,
-        image: cartItem.image
+        image: cartItem.image,
+        date: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
       })
       // console.log(this.ordersStore.orders)
       this.$router.push({ name: 'cart' })
@@ -49,23 +42,15 @@ export default {
     <div class="tile">
       <div class="action">
         <div class="cart">
-          <img width="29" height="28" src="@/assets/cart_icon.svg" alt="Add to your basket" @click="basketShort(coffee)" />
+          <font-awesome-icon icon="fa-solid fa-cart-shopping" size="lg" style="color: #252525;" @click="basketShort(coffee)"/>
         </div>
-        <div class="fav">
-          <img
-            v-if="coffee.isFav && coffee.isFav === true"
-            src="../assets/fav_check1.svg"
-            width="29" height="28"
-            alt="Add to your favorites"
-            @click="addToFav(coffee)"
-          />
-          <img
-            v-else
-            src="../assets/favorite_icon.svg"
-            width="29" height="28"
-            alt="Add to your favorites"
-            @click="addToFav(coffee)"
-          />
+        <div class="fav" @click="addToFav(coffee)">
+          <template v-if="coffee.isFav && coffee.isFav === true">
+            <font-awesome-icon icon="fa-solid fa-heart" size="lg" style="color: #252525;" />
+          </template>
+          <template v-else>
+            <font-awesome-icon icon="fa-regular fa-heart" size="lg" style="color: #252525;" />
+          </template>
         </div>
       </div>
       <div class="image" :id="coffee.id" @click="this.$router.push({ name: 'coffee', params: { id: coffee.id } })">
@@ -94,8 +79,5 @@ export default {
 <style scoped>
 .listing .product_tile .details {
   display: none;
-}
-.listing .product_tile .action .fav img[src$='fav_check1.svg'] {
-  transform: scale(1.4);
 }
 </style>

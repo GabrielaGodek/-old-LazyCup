@@ -14,6 +14,10 @@ dist
 coverage
 *.local
 
+.vscode
+vercel.json
+.gitignore
+
 /cypress/videos/
 /cypress/screenshots/
 

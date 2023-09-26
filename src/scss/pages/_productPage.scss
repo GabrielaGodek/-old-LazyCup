@@ -1,10 +1,14 @@
 @use '../partials/variables' as *;
 
 .product_page {
-  height: 100%;
-
+  // height: 100%;
+  height: calc(100vh - 92px);
+  padding: 0;
   .product_tile {
     height: 100%;
+    &:hover {
+      box-shadow: none;
+    }
   }
   .tile {
     height: 100%;
@@ -17,10 +21,7 @@
       margin: 0 auto;
       flex: 1 1 40%;
       min-height: 100px;
-      // display: flex;
-      picture {
-        // display: flex;
-      }
+      min-width: 200px;
       img {
         height: 100%;
         align-self: center;
@@ -30,37 +31,31 @@
       flex: 1 1 60%;
       background-color: $header_color;
       height: 100%;
-      padding: 0 20px;
+      padding: 0 15px 34vw;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: space-between;
       color: #000;
-      font-size: 18px;
+      font-size: 14px;
       font-style: normal;
       font-weight: 400;
-      line-height: 150%; /* 27px */
 
       .title {
-        margin: 20px 0 0 0;
-        color: #000;
-        font-size: 34px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%; /* 51px */
+        margin: 15px 0 0 0;
+        font-size: 24px;
       }
       .details {
         text-align: justify;
         order: 1;
         color: #000;
-        font-size: 18px;
+        font-size: 14px;
         font-style: normal;
-        font-weight: 400;
-        // line-height: 150%; /* 27px */
-        max-height: 108px;
+        // font-weight: 400;
+        line-height: 18px;
+        max-height: 85px;
         overflow-y: scroll;
       }
       .price_container {
-        // display: none;
         order: 2;
         display: flex;
         justify-content: flex-start;
@@ -68,21 +63,19 @@
         gap: 20px;
         .new_price {
           color: #db1313;
-          font-size: 34px;
+          font-size: 24px;
           font-style: normal;
           font-weight: 400;
           // line-height: 150%; /* 51px */
           & ~ .old_price {
             text-decoration: line-through;
+            font-size: 20px;
           }
         }
         .old_price {
-          // color: #000;
           font-size: 25px;
           font-style: normal;
           font-weight: 400;
-          // line-height: 150%; /* 37.5px */
-          // text-decoration-line: strikethrough;
         }
       }
     }
@@ -92,7 +85,6 @@
         flex: 1 1 50%;
         display: flex;
         justify-content: center;
-        // align-items: center;
         img {
           height: auto;
           width: 80%;
@@ -114,19 +106,19 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: $header_height;
+  bottom: $footer_height;
   //   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 15px;
   align-items: center;
   background-color: $header_color;
-  min-height: 50px;
+  min-height: 65px;
   .buy {
     @include btn;
   }
   @media (min-width: $lg_breakpoint) {
     left: 50%;
-    min-height: 70px;
+    min-height: 100px;
   }
 }

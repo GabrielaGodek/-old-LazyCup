@@ -35,10 +35,10 @@ export default {
       )
     },
     emptyBasket() {
-      return this.ordersStore.orders.length === 0 ? true : false
+      return this.ordersStore.orders.length === 0
     },
     updateBasket() {
-      return this.ordersStore.orders.some((item) => item.amount === 0) ? true : false
+      return this.ordersStore.orders.some((item) => item.amount === 0)
     }
   },
   methods: {
@@ -72,8 +72,8 @@ export default {
 </script>
 
 <template>
-  <div class="cart_page">
-    <section class="orders">
+  <section class="cart_page">
+    <section class="orders" v-show="!emptyBasket">
       <div class="single_order" v-for="item in this.ordersStore.orders" :key="item.id">
         <div class="tile">
           <div class="image" :id="item.id">
@@ -90,14 +90,13 @@ export default {
               <h2 class="price" v-else>{{ item.price }} zł</h2>
             </div>
             <div class="counter">
+              <input type="button" value="-" @click.prevent="removeProduct(item)" />
+              <input type="number" name="coffee_amount" id="" :value="item.amount" disabled readonly/>
               <input
                 type="button"
                 value="+"
                 @click.prevent="addProducts(item)"
-                :disabled="item.amount == 10"
               />
-              <input type="number" name="coffee_amount" id="" :value="item.amount" />
-              <input type="button" value="-" @click.prevent="removeProduct(item)" />
             </div>
           </div>
         </div>
@@ -127,7 +126,7 @@ export default {
         <backItem :btn-text="'Back'" />
       </div>
     </section>
-  </div>
+  </section>
 </template>
 <style scoped>
 .action .fav {

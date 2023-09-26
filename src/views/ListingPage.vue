@@ -1,4 +1,3 @@
-
 <script>
 import { ref } from 'vue'
 import { mapStores } from 'pinia'
@@ -12,44 +11,31 @@ export default {
   },
   data() {
     return {
-      // CoffeesList: [],
       badReq: ref(false)
-      // CoffeesList: reactive([])
     }
   },
   computed: {
-    // ordersStore
     ...mapStores(useOrdersStore)
   },
   methods: {
-    getCoffees() {
-      fetch('https://my-json-server.typicode.com/GabrielaGodek/CoffeeShop-Database/coffees/')
-        .then((res) => {
-          if (res.ok) {
-            return res.json()
-          } else {
-            const error = res.status
-            return Promise.reject(error)
-          }
-        })
-        .then((data) => {
+    async getCoffees() {
+      try {
+        const response = await fetch('https://my-json-server.typicode.com/GabrielaGodek/CoffeeShop-Database/coffees/')
+
+        if (response.ok) {
+          const data = await response.json()
           this.ordersStore.coffees = data
-          console.log(data)
           this.badReq = false
-        })
-        .catch((error) => {
-          // console.log(localStorage.getItem("CoffeeResponse"))
-          // if(localStorage.getItem("ordersTrack")){
-          // this.useOrdersStore.coffees = JSON.parse(localStorage.getItem("ordersTrack").coffees)
-          // } else {
-          console.error(error)
-          // this.badReq = true
-          // }
-        })
+        } else {
+          const error = response.status
+          throw error
+        }
+      } catch (error) {
+        console.error(error)
+      }
     }
   },
   mounted() {
-    // console.log(this.ordersStore.coffees)
     if (this.ordersStore.coffees.length === 0) {
       this.getCoffees()
     }

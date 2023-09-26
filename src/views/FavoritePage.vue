@@ -12,7 +12,7 @@ export default {
   computed: {
     ...mapStores(useOrdersStore),
     emptyFav() {
-      return ((this.ordersStore.coffees.filter((i) => i.isFav == true).length !== 0) ? false : true)
+      return (this.ordersStore.coffees.filter((i) => i.isFav === true).length === 0)
     }
   },
   updated() {

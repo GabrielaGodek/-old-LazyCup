@@ -2,7 +2,6 @@ import { defineStore } from 'pinia'
 
 export const useOrdersStore = defineStore('orders', {
   state: () => ({
-    /** @type {{ id: Number, amount: Number, name: String, price: Number, salePrice: Number, image: String, }[]} */
     orders: [],
     coffees: []
   }),
@@ -15,12 +14,14 @@ export const useOrdersStore = defineStore('orders', {
           name: cartItem.name,
           price: cartItem.price,
           salePrice: cartItem.salePrice,
-          image: cartItem.image
+          image: cartItem.image,
+          date: cartItem.date
         })
       } else {
-        let duplicateCoff = this.orders.find((el) => el.id === cartItem.id)
-        let i = this.orders.indexOf(duplicateCoff)
-        this.orders[i].amount++
+        const index = this.orders.findIndex((el) => el.id === cartItem.id)
+        if (index !== -1) {
+          this.orders[index].amount++
+        }
       }
     },
     removeItem(cartItem) {

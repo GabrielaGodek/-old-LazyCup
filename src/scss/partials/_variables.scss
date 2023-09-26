@@ -8,23 +8,24 @@ $lg_breakpoint: 800px;
 $md_breakpoint: 600px;
 $xs_breakpoint: 350px;
 
-$bg_color: #f0c9ba;
-$header_color: #fff;
-$details_color: #ca8f7a;
-$promo_color: #000;
+$bg_color: #f0c9ba8c;
+$header_color: #ffff;
+$details_color: #ca8f7ac9;
+$promo_color: #333333;
 $cta_color: #965858;
-$text_color: #000;
+$text_color: #333333;
 
 $font-size: clamp(14px, 18px, 20px);
 
-$header_height: 52px;
+$header_height: 42px;
+$footer_height: 40px;
 
-$footer_height: 134px;
+// $footer_height: 134px;
 $d_footer_height: 50px;
 
 $menu_color: #e8e4e6;
 
-$header_padding: 32px;
+$header_padding: 15px;
 
 $open_menu_width: 293px;
 
@@ -34,9 +35,9 @@ $open_menu_width: 293px;
   align-items: center;
 }
 @mixin shadow {
-  -webkit-box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
-  -moz-box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
-  box-shadow: 0px 4px 35px -8px rgba(66, 68, 90, 1);
+  -webkit-box-shadow: 0px 4px 35px -8px #964b00;
+  -moz-box-shadow: 0px 4px 35px -8px #964b00;
+  box-shadow: 0px 4px 35px -8px #964b00;
 }
 
 @mixin btn {

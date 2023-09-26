@@ -1,5 +1,6 @@
 <template>
   <section class="qr_code">
+    <font-awesome-icon icon="fa-solid fa-circle-check" size="2xl" class="slide" />
     <qr-codeItem :summary="summary"></qr-codeItem>
   </section>
 </template>
@@ -52,7 +53,7 @@ export default {
 <style scoped lang="scss">
 .qr_code {
   width: 100%;
-  height: calc(100vh - (52px * 2));
+  height: calc(100vh - (52px + 40px));
   margin: 0 auto;
   position: relative;
   display: flex;
@@ -61,7 +62,34 @@ export default {
   align-items: center;
   gap: 20px;
   p {
-    width: 294px;
+    width: 190px;
+  }
+}
+.slide {
+  // z-index: -1;
+  transform: translateY(60px);
+  -webkit-animation: slide 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+  animation: slide 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+}
+
+@-webkit-keyframes slide {
+  0% {
+    -webkit-transform: translateY(60px);
+    transform: translateY(60px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes slide {
+  0% {
+    -webkit-transform: translateY(60px);
+    transform: translateY(60px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 </style>

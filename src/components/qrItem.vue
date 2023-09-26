@@ -3,12 +3,12 @@
     <QRCode
       :value="summary"
       level="H"
-      :QRSize="294"
+      :QRSize="190"
       QRBackgroundColor="white"
       :logoSize="70"
       logoBackgroundColor="white"
     />
-    <img width="294" height="294" class="qrcode__image" src="@/assets/cup.svg" alt="LazyCup" />
+    <img width="294" height="294" class="qrcode__image" src="/public/cup.svg" alt="LazyCup" />
   </figure>
 
   <p>To collect order scan this code at the counter</p>
@@ -38,7 +38,7 @@ export default {
 <style scoped lang="scss">
 .qrcode {
   background-color: #fff;
-  padding: 10px;
+  padding: 5px;
   display: inline-block;
   font-size: 0;
   margin: 0;
@@ -48,7 +48,6 @@ export default {
 .qrcode__image {
   background-color: #fff;
   border: 0.25rem solid #fff;
-  border-radius: 0.25rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
   left: 50%;
   overflow: hidden;

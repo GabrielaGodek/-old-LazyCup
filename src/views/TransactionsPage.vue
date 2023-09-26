@@ -10,7 +10,7 @@
     >
       <div class="accordion_header">
         <template v-for="item in transaction" :key="item.id">
-            <h2>{{ item.name }}</h2>
+            <h2>{{ item.date }}</h2>
         </template>
       </div>
       <qr-item v-if="index === openTransactionIndex" :summary="summary" />
@@ -19,7 +19,6 @@
 
   <section class="empty" v-show="emptyTransactions">
       <h2>Oops, looks like you don't have any transactions!</h2>
-     
       <p>Have some difficulties? Remember, you can always order yor fav coffee at the counter :)</p>
     </section>
 </template>
@@ -38,9 +37,12 @@ export default {
       transactions: reactive([]),
       summary: '',
       lastTransaction: false,
-      openTransactionIndex: null,
+      openTransactionIndex: 0,
       emptyTransactions: true
     }
+  },
+  computed: {
+
   },
   methods: {
     transactionsList() {
@@ -49,6 +51,7 @@ export default {
         list.forEach((i) => {
           this.transactions.push(i)
         })
+        this.transactions.reverse()
         this.emptyTransactions = false 
       } else {
         this.emptyTransactions = true 
@@ -67,10 +70,19 @@ export default {
       } else {
         this.openTransactionIndex = index
       }
+    },
+    openLastTransaction(){
+      let list = JSON.parse(localStorage.getItem('orderedItems')).reverse()
+      console.log(list)
+       this.summary = `${list[0][0].name} - ${list[0][0].amount} x ${list[0][0].salePrice ? list[0][0].salePrice : list[0][0].price}; `
+      let totalPrice = (list[0][0].salePrice < list[0][0].price ? list[0][0].salePrice : list[0][0].price) * list[0][0].amount
+
+      this.summary += ` Total: ${totalPrice} zł`
     }
   },
   mounted() {
     this.transactionsList()
+    this.openLastTransaction()
   }
 }
 </script>
