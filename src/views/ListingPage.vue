@@ -20,7 +20,7 @@ export default {
   methods: {
     async getCoffees() {
       try {
-        const response = await fetch('https://my-json-server.typicode.com/GabrielaGodek/CoffeeShop-Database/coffees/')
+        const response = await fetch('https://nodejs-database.onrender.com/api/v1/coffees')
 
         if (response.ok) {
           const data = await response.json()

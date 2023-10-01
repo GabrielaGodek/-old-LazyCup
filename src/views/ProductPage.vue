@@ -41,7 +41,7 @@ export default {
 
       try {
         const response = await fetch(
-          `https://my-json-server.typicode.com/GabrielaGodek/CoffeeShop-Database/coffees/${id}`
+          `https://nodejs-database.onrender.com/api/v1/coffees${id}`
         )
 
         if (response.ok) {
