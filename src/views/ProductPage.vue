@@ -38,12 +38,13 @@ export default {
   methods: {
     ...mapActions(useOrdersStore, ['addItem']),
     async getSpecCoffee(id) {
+      console.log(typeof id)
+
       try {
         const response = await fetch(`https://nodejs-database.onrender.com/api/v1/coffees/${id}`)
-
         if (response.ok) {
           const data = await response.json()
-          this.coffeeData = data
+          this.coffeeData = data.data.coffee
         } else {
           const error = response
           throw error
@@ -74,7 +75,7 @@ export default {
 
   beforeMount() {
     const router = useRouter()
-    const id = Number(router.currentRoute.value.params.id)
+    const id = router.currentRoute.value.params.id
     this.getSpecCoffee(id)
   }
 }

@@ -40,22 +40,9 @@ footer {
         text-align: center;
         cursor: pointer;
         justify-content: center;
-        padding: 4px;
+        padding: 6px 4px 4px;
         &.router-link-active {
           border-top: 2px solid #965858;
-          // padding-bottom: 4px;
-          svg {
-            // transform: translateY(-2px);
-          }
-          // width: 27px;
-          // margin: 0 auto;
-          // background-color: #ac7349;
-          // // padding-left: 0px;
-          // padding-top: 2px;
-          // border-radius: 4px;
-          // img {
-          //   filter: invert(100%);
-          // }
         }
       }
     }

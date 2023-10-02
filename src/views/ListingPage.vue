@@ -20,12 +20,13 @@ export default {
   methods: {
     async getCoffees() {
       try {
-        const response = await fetch('https://nodejs-database.onrender.com/api/v1/coffees')
+        const response = await fetch('https://nodejs-database.onrender.com/api/v1/coffees/')
 
         if (response.ok) {
-          const data = await response.json()
-          this.ordersStore.coffees = data
-          this.badReq = false
+          const coffeesData = await response.json()
+          this.ordersStore.coffees = coffeesData.data.coffees
+          console.log(this.ordersStore.coffees)
+          // this.badReq = false
         } else {
           const error = response.status
           throw error
@@ -47,7 +48,7 @@ export default {
   <section class="wrapper listing">
     <h1>Coffees</h1>
     <template v-if="this.badReq === false">
-      <div class="tile_wrapper" v-for="item in this.ordersStore.coffees" :key="item.id">
+      <div class="tile_wrapper" v-for="item in this.ordersStore.coffees" :key="item._id">
         <ProductTile :coffee="item" />
       </div>
     </template>

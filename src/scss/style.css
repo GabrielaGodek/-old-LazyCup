@@ -141,11 +141,12 @@ footer nav ul a {
   text-align: center;
   cursor: pointer;
   justify-content: center;
-  padding: 4px;
+  padding: 6px 4px 4px;
 }
 footer nav ul a.router-link-active {
   border-top: 2px solid #965858;
 }
+
 .product_tile {
   background-color: white;
   height: 100%;
@@ -242,7 +243,20 @@ footer nav ul a.router-link-active {
 .single_transaction.open_qr figure.qrcode {
   text-align: center;
   margin: 20px auto;
-  width: 334px;
+  max-width: 60vw;
+}
+.single_transaction.open_qr figure.qrcode canvas {
+  width: 52vw !important;
+  height: 100% !important;
+}
+@media (min-width: 800px) {
+  .single_transaction.open_qr figure.qrcode {
+    max-width: 30vw;
+  }
+  .single_transaction.open_qr figure.qrcode canvas {
+    width: 22vw !important;
+    height: 100% !important;
+  }
 }
 .single_transaction.open_qr p {
   display: none;

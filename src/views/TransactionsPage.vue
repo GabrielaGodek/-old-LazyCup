@@ -9,9 +9,7 @@
       @click.prevent="restoreLastTransaction(transaction, index)"
     >
       <div class="accordion_header">
-        <template v-for="item in transaction" :key="item.id">
-            <h2>{{ item.date }}</h2>
-        </template>
+        <h2>{{ transaction[0].date }}</h2>
       </div>
       <qr-item v-if="index === openTransactionIndex" :summary="summary" />
     </div>

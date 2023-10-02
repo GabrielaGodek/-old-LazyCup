@@ -8,7 +8,7 @@
       :logoSize="70"
       logoBackgroundColor="white"
     />
-    <img width="294" height="294" class="qrcode__image" src="/public/cup.svg" alt="LazyCup" />
+    <img width="294" height="294" class="qrcode__image" src="/cup.svg" alt="LazyCup" />
   </figure>
 
   <p>To collect order scan this code at the counter</p>

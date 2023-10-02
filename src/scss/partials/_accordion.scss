@@ -6,7 +6,7 @@
   padding: 9px 12px;
   border-radius: 4px;
   max-height: 200px;
-  transition: all .5s ease-out;
+  transition: all 0.5s ease-out;
 
   display: flex;
   flex-direction: column;
@@ -24,7 +24,18 @@
     figure.qrcode {
       text-align: center;
       margin: 20px auto;
-      width: 334px;
+      max-width: 60vw;
+      canvas {
+        width: 52vw !important;
+        height: 100% !important;
+      }
+      @media (min-width: $lg_breakpoint){
+        max-width: 30vw;
+        canvas {
+          width: 22vw !important;
+          height: 100% !important;
+        }
+      }
     }
     p {
       display: none;
