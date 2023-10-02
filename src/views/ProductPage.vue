@@ -38,11 +38,8 @@ export default {
   methods: {
     ...mapActions(useOrdersStore, ['addItem']),
     async getSpecCoffee(id) {
-
       try {
-        const response = await fetch(
-          `https://nodejs-database.onrender.com/api/v1/coffees${id}`
-        )
+        const response = await fetch(`https://nodejs-database.onrender.com/api/v1/coffees/${id}`)
 
         if (response.ok) {
           const data = await response.json()
