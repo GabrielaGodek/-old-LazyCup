@@ -1,24 +1,7 @@
 # LazyCup
 Single Page Application that allows you to buy your favorite coffee without waiting in long line at coffee house.
 
-## Features:
-- viewing available selection of coffees
-- seeing details such as description and current price of the selected coffee
-- adding coffee to favorite
-- placing orders
-- seeing last transactions with generated QR code containing all details
-
-## Tech stack
-- Vue.js
-- JavaScript (ES6+)
-- SASS/CSS3
-
-## Project
-With this project I was able to get friendly with new tool like Figma and with the whole concept of Mobile Design.
-[View on Figma](https://www.figma.com/file/mRftKP3EVAnQN22cLKDYcR/LazyCup?type=design&node-id=0%3A1&mode=design&t=JZraB6xgt4mNJTGm-1)
-
-## Lighthouse report
-![lighthouse report](./lazycup_lighthouse.png)
+With this project, I became more comfortable with Vue, managing state with Pinia, and delivering props through components. I also developed automated unit tests with Vitest.
 
 ## Installation
 1. Clone the repository `git clone https://github.com/GabrielaGodek/LazyCup.git`
@@ -27,3 +10,28 @@ With this project I was able to get friendly with new tool like Figma and with t
 4. At the terminal run the command `npm run dev`
 5. It will open localhost at `http://127.0.0.1:5173/`
 
+### Structure
+- `/src` - Source code.
+- `/public` - Public resources.
+- `/src/components` - Vue's components.
+- `/src/store` - Pinia assets.
+
+## Dependencies
+- Vue.js: `^3.3.4`
+- Pinia: `^2.0.36`
+- Vite: `^4.3.5`
+- Sass: `^1.63.3`
+- Fontawesome: `^3.0.3`
+
+## Design
+With this project I was able to get friendly with new tool like Figma and with the whole concept of Mobile Design.
+[View on Figma](https://www.figma.com/file/mRftKP3EVAnQN22cLKDYcR/LazyCup?type=design&node-id=0%3A1&mode=design&t=6zMBIfF7ng3Vk8bF-1)
+
+## Lighthouse report
+![lighthouse report](./lazycup_lighthouse.png)
+
+### License
+This project is available for use under the MIT License.
+
+### Authors
+Gabriela Godek

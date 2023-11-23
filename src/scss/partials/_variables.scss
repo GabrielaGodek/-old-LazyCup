@@ -1,4 +1,4 @@
-@use 'sass:math';
+@use "sass:math";
 @function vw($w, $h) {
   $vw: math.div($h, math.div($w, 100vw));
   @return $vw;
@@ -15,19 +15,12 @@ $promo_color: #333333;
 $cta_color: #965858;
 $text_color: #333333;
 
-$font-size: clamp(14px, 18px, 20px);
+$font_size: clamp(14px, 18px, 20px);
 
 $header_height: 42px;
 $footer_height: 40px;
 
-// $footer_height: 134px;
-$d_footer_height: 50px;
-
-$menu_color: #e8e4e6;
-
-$header_padding: 15px;
-
-$open_menu_width: 293px;
+$header_padding: 28px;
 
 @mixin f_center {
   display: flex;
@@ -56,8 +49,14 @@ $open_menu_width: 293px;
 }
 
 @font-face {
-  font-family: 'mainFont';
-  src: url('https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/Montserrat/static/Montserrat-Light.ttf')
-    format('TrueType');
+  font-family: "header";
+  src: url("https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/Montserrat/static/Montserrat-Medium.ttf")
+    format("TrueType");
+  font-display: swap;
+}
+@font-face {
+  font-family: "body_font";
+  src: url("https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/Open_Sans/static/OpenSans-Regular.ttf")
+    format("TrueType");
   font-display: swap;
 }

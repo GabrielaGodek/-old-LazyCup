@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "test:unit": "vitest --environment jsdom --ui",
     "format": "prettier --write src/",
     "sass": "sass --watch --update --style=expanded src/scss:src/scss"
   },
@@ -29,12 +29,17 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
     "@vitejs/plugin-vue": "^4.2.3",
+    "@vitest/ui": "^0.34.6",
     "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/test-utils": "^2.4.2",
     "eslint": "^8.39.0",
     "eslint-plugin-vue": "^9.11.0",
+    "jsdom": "^22.1.0",
     "prettier": "^2.8.8",
     "sass": "^1.63.3",
+    "start-server-and-test": "^2.0.3",
     "vite": "^4.3.5",
+    "vitest": "^0.34.6",
     "vue-qrcode-dynamic": "^3.0.3"
   }
 }

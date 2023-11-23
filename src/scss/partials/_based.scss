@@ -9,7 +9,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: v.$bg_color;
-  font-family: 'mainFont';
+  font-family: 'body_font';
   font-size: v.$font-size;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -65,13 +65,18 @@ a {
   }
 }
 
-h1,
-h2,
-h3,
 p,
 span,
 div {
-  font-family: 'mainFont';
+  font-family: 'body_font';
+  font-weight: normal;
+  color: v.$text_color;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'header';
   font-weight: normal;
   color: v.$text_color;
 }

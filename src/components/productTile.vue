@@ -63,7 +63,7 @@ export default {
         :id="coffee._id"
         @click="this.$router.push({ name: 'coffee', params: { id: coffee._id } })"
       >
-        <img :src="coffee.image" :alt="coffee.name" />
+        <img :src="'https://link to domain/' + coffee.image" :alt="coffee.name" />
       </div>
       <div
         class="description"
