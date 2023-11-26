@@ -10,7 +10,7 @@ export const useOrdersStore = defineStore('orders', {
       if (!this.orders.some((el) => el.id === cartItem.id)) {
         this.orders.push({
           id: cartItem.id,
-          amount: 1,
+          amount: cartItem.amount,
           name: cartItem.name,
           price: cartItem.price,
           salePrice: cartItem.salePrice,

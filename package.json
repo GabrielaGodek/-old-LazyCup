@@ -7,39 +7,33 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest --environment jsdom --ui",
+    "test:coverage": "vitest run --coverage",
     "format": "prettier --write src/",
     "sass": "sass --watch --update --style=expanded src/scss:src/scss"
   },
   "dependencies": {
-    "@chenfengyuan/vue-qrcode": "^2.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
-    "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "pinia": "^2.0.36",
     "pinia-plugin-persistedstate": "^3.2.0",
-    "qrcode": "^1.5.3",
-    "qrcode.vue": "^3.4.1",
     "vue": "^3.3.4",
-    "vue-fontawesome": "^0.0.2",
-    "vue-qrcode-component": "^2.1.1",
+    "vue-qrcode-dynamic": "^3.0.3",
     "vue-router": "^4.2.2"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.2.0",
-    "@vitejs/plugin-vue": "^4.2.3",
+    "@pinia/testing": "^0.1.3",
+    "@vitejs/plugin-vue": "^4.5.0",
     "@vitest/ui": "^0.34.6",
-    "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/test-utils": "^2.4.2",
-    "eslint": "^8.39.0",
-    "eslint-plugin-vue": "^9.11.0",
+    "http-proxy-middleware": "^2.0.6",
     "jsdom": "^22.1.0",
+    "node-fetch": "^3.3.2",
     "prettier": "^2.8.8",
     "sass": "^1.63.3",
-    "start-server-and-test": "^2.0.3",
+    "vi-fetch": "^0.8.0",
     "vite": "^4.3.5",
-    "vitest": "^0.34.6",
-    "vue-qrcode-dynamic": "^3.0.3"
+    "vitest": "^0.34.6"
   }
 }

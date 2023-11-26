@@ -65,9 +65,6 @@ export default {
       this.removeItem(item)
     }
   },
-  mounted() {
-    // this.makeList()
-  }
 }
 </script>
 
@@ -77,7 +74,7 @@ export default {
       <div class="single_order" v-for="item in this.ordersStore.orders" :key="item.id">
         <div class="tile">
           <div class="image" :id="item.id">
-            <img width="96" height="96" :src="item.image" :alt="item.name" />
+            <img width="96" height="96" :src="'../../public/coffees_icons/' + item.image" :alt="item.name" />
           </div>
           <div class="description" :id="item.id">
             <h1 class="title">

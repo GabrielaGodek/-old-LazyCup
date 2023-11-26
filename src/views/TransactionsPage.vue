@@ -1,26 +1,3 @@
-<template>
-  <section class="wrapper transactions" v-show="!emptyTransactions">
-    <h1>Last transactions</h1>
-    <div
-      class="single_transaction"
-      v-for="(transaction, index) in transactions"
-      :key="transaction.id"
-      :class="{ open_qr: index === openTransactionIndex }"
-      @click.prevent="restoreLastTransaction(transaction, index)"
-    >
-      <div class="accordion_header">
-        <h2>{{ transaction[0].date }}</h2>
-      </div>
-      <qr-item v-if="index === openTransactionIndex" :summary="summary" />
-    </div>
-  </section>
-
-  <section class="empty" v-show="emptyTransactions">
-      <h2>Oops, looks like you don't have any transactions!</h2>
-      <p>Have some difficulties? Remember, you can always order yor fav coffee at the counter :)</p>
-    </section>
-</template>
-
 <script>
 import { reactive } from 'vue'
 
@@ -38,9 +15,6 @@ export default {
       openTransactionIndex: 0,
       emptyTransactions: true
     }
-  },
-  computed: {
-
   },
   methods: {
     transactionsList() {
@@ -70,7 +44,7 @@ export default {
       }
     },
     openLastTransaction(){
-      let list = JSON.parse(localStorage.getItem('orderedItems')).reverse()
+      let list =  JSON.parse(localStorage.getItem('orderedItems')) || null
       console.log(list)
        this.summary = `${list[0][0].name} - ${list[0][0].amount} x ${list[0][0].salePrice ? list[0][0].salePrice : list[0][0].price}; `
       let totalPrice = (list[0][0].salePrice < list[0][0].price ? list[0][0].salePrice : list[0][0].price) * list[0][0].amount
@@ -80,7 +54,32 @@ export default {
   },
   mounted() {
     this.transactionsList()
-    this.openLastTransaction()
+    if(!this.emptyTransactions) {
+      this.openLastTransaction()
+    }
   }
 }
 </script>
+
+<template>
+  <section class="wrapper transactions" v-show="!emptyTransactions">
+    <h1>Last transactions</h1>
+    <div
+      class="single_transaction"
+      v-for="(transaction, index) in transactions"
+      :key="transaction.id"
+      :class="{ open_qr: index === openTransactionIndex }"
+      @click.prevent="restoreLastTransaction(transaction, index)"
+    >
+      <div class="accordion_header">
+        <h2>{{ transaction[0].date }}</h2>
+      </div>
+      <qr-item v-if="index === openTransactionIndex" :summary="summary" />
+    </div>
+  </section>
+
+  <section class="empty" v-show="emptyTransactions">
+      <h2>Oops, looks like you don't have any transactions!</h2>
+      <p>Have some difficulties? Remember, you can always order yor fav coffee at the counter :)</p>
+    </section>
+</template>

@@ -1,57 +1,55 @@
 <script>
-import { ref } from 'vue'
-import { mapStores } from 'pinia'
-import ProductTile from '@/components/productTile.vue'
-import { useOrdersStore } from '@/store/orders'
+import { ref, onMounted } from "vue";
+import { mapStores } from "pinia";
+import ProductTile from "@/components/productTile.vue";
+import { useOrdersStore } from "@/store/orders";
+import { getCoffees } from "@/util/fetch";
 
 export default {
-  name: 'ListingPage',
+  name: "ListingPage",
   components: {
-    ProductTile
+    ProductTile,
   },
-  data() {
-    return {
-      badReq: ref(false)
-    }
-  },
-  computed: {
-    ...mapStores(useOrdersStore)
-  },
-  methods: {
-    async getCoffees() {
-      try {
-        const response = await fetch('https://nodejs-database.onrender.com/api/v1/coffees/')
+  setup() {
+  const ordersStore = useOrdersStore();
+  const loading = ref(true);
+  const badReq = ref(false);
+  const coffees = ref([]);
 
-        if (response.ok) {
-          const coffeesData = await response.json()
-          this.ordersStore.coffees = coffeesData.data.coffees
-          console.log(this.ordersStore.coffees)
-          // this.badReq = false
-        } else {
-          const error = response.status
-          throw error
-        }
-      } catch (error) {
-        console.error(error)
-      }
+  onMounted(async () => {
+    try {
+      const fetchedCoffees = await getCoffees();
+      coffees.value = fetchedCoffees.coffees;
+    } catch (error) {
+      console.error("Failed to fetch coffee data.", error);
+      badReq.value = true;
+    } finally {
+      loading.value = false;
     }
-  },
-  mounted() {
-    if (this.ordersStore.coffees.length === 0) {
-      this.getCoffees()
-    }
-  }
-}
+  });
+
+  return {
+    loading,
+    badReq,
+    coffees: ordersStore.coffees,
+  };
+},
+
+};
 </script>
-Ŕ
+
 <template>
   <section class="wrapper listing">
     <h1>Coffees</h1>
-    <template v-if="this.badReq === false">
-      <div class="tile_wrapper" v-for="item in this.ordersStore.coffees" :key="item._id">
+    <template v-if="!badReq && coffees.length > 0">
+      <div class="tile_wrapper" v-for="item in coffees" :key="item._id">
         <ProductTile :coffee="item" />
       </div>
     </template>
+    <div v-else>
+      <p v-if="badReq">Failed to fetch coffee data.</p>
+      <p v-else>No coffees available.</p>
+    </div>
   </section>
 </template>
 

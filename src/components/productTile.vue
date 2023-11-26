@@ -1,24 +1,30 @@
 <script>
-import { mapStores, mapWritableState, mapActions } from 'pinia'
-import { useOrdersStore } from '@/store/orders'
+import { mapStores, mapWritableState, mapActions } from "pinia";
+import { useOrdersStore } from "@/store/orders";
 
 export default {
-  name: 'productTile',
+  name: "productTile",
   props: {
     coffee: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
-    ...mapWritableState(useOrdersStore, ['coffees']),
-    ...mapStores(useOrdersStore)
+    ...mapWritableState(useOrdersStore, ["coffees"]),
+    ...mapStores(useOrdersStore),
   },
   methods: {
-    ...mapActions(useOrdersStore, ['addItem']),
+    ...mapActions(useOrdersStore, ["addItem"]),
+    moveToCoffeePage(coffeeId) {
+      if (this.$router && coffeeId !== null && coffeeId !== undefined) {
+        this.$router.push({ name: "coffee", params: { id: coffeeId } });
+      }
+    },
+
     addToFav(coffee) {
-      let item = (this.ordersStore.coffees.filter(el => el._id === coffee._id))
-      item[0].isFav === true ? (item[0].isFav = false) : (item[0].isFav = true)
+      let item = this.ordersStore.coffees.filter((el) => el._id === coffee._id);
+      item[0].isFav === true ? (item[0].isFav = false) : (item[0].isFav = true);
     },
     basketShort(cartItem) {
       this.addItem({
@@ -28,17 +34,16 @@ export default {
         price: cartItem.price,
         salePrice: cartItem.salePrice,
         image: cartItem.image,
-        date: new Date().toJSON().slice(0, 10).replace(/-/g, '/')
-      })
-      // console.log(this.ordersStore.orders)
-      this.$router.push({ name: 'cart' })
-    }
-  }
-}
+        date: new Date().toJSON().slice(0, 10).replace(/-/g, "/"),
+      });
+      this.$router.push({ name: "cart" });
+    },
+  },
+};
 </script>
 
 <template>
-  <div class="product_tile">
+  <div class="product_tile" :id="coffee._id">
     <div class="tile">
       <div class="action">
         <div class="cart">
@@ -51,23 +56,27 @@ export default {
         </div>
         <div class="fav" @click="addToFav(coffee)">
           <template v-if="coffee.isFav && coffee.isFav === true">
-            <font-awesome-icon icon="fa-solid fa-heart" size="lg" style="color: #252525" />
+            <font-awesome-icon
+              icon="fa-solid fa-heart"
+              size="lg"
+              style="color: #252525"
+            />
           </template>
           <template v-else>
-            <font-awesome-icon icon="fa-regular fa-heart" size="lg" style="color: #252525" />
+            <font-awesome-icon
+              icon="fa-regular fa-heart"
+              size="lg"
+              style="color: #252525"
+            />
           </template>
         </div>
       </div>
-      <div
-        class="image"
-        :id="coffee._id"
-        @click="this.$router.push({ name: 'coffee', params: { id: coffee._id } })"
-      >
-        <img :src="'https://link to domain/' + coffee.image" :alt="coffee.name" />
+      <div class="image" :id="coffee._id" @click="moveToCoffeePage(coffee._id)">
+        <img :src="'/coffees_icons/' + coffee.image" :alt="coffee.name" />
       </div>
       <div
         class="description"
-        @click="this.$router.push({ name: 'coffee', params: { id: coffee._id } })"
+        @click="moveToCoffeePage(coffee._id)"
         :id="coffee._id"
       >
         <h1 class="title">
@@ -77,7 +86,9 @@ export default {
           {{ coffee.description }}
         </p>
         <div class="price_container">
-          <h2 class="new_price" v-if="coffee.salePrice">{{ coffee.salePrice }} zł</h2>
+          <h2 class="new_price" v-if="coffee.salePrice">
+            {{ coffee.salePrice }} zł
+          </h2>
           <span class="old_price"> {{ coffee.price }} zł</span>
         </div>
       </div>

@@ -37,20 +37,13 @@ export default {
   },
   methods: {
     ...mapActions(useOrdersStore, ['addItem']),
-    async getSpecCoffee(id) {
-      console.log(typeof id)
-
+   async getSpecCoffee(array, id) {
       try {
-        const response = await fetch(`https://nodejs-database.onrender.com/api/v1/coffees/${id}`)
-        if (response.ok) {
-          const data = await response.json()
-          this.coffeeData = data.data.coffee
-        } else {
-          const error = response
-          throw error
-        }
+        let item = await array.find(element => element.id === id)
+        this.coffeeData = item
+        
       } catch (error) {
-        console.error(error)
+        console.error('Error fetching coffee data from Pinia:', error)
       }
     },
     addToCart(cartItem) {
@@ -62,7 +55,7 @@ export default {
           amount: 1,
           name: cartItem.name,
           price: cartItem.price,
-          salePrice: cartItem.salePrice ? cartItem.salePrice : cartItem.price,
+          salePrice: cartItem.salePrice || cartItem.price,
           image: cartItem.image,
           date: new Date().toJSON().slice(0, 10).replace(/-/g, '/')
         }
@@ -76,17 +69,23 @@ export default {
   beforeMount() {
     const router = useRouter()
     const id = router.currentRoute.value.params.id
-    this.getSpecCoffee(id)
+    this.getSpecCoffee(this.ordersStore.coffees, id)
   }
 }
+
 </script>
 
 <template>
   <section class="wrapper product_page">
-    <productTile :coffee="coffeeData" />
-    <div class="add_to_cart">
-      <back :btn-text="backText" />
-      <buttonItem :btn-text="btnText" @click="addToCart(coffeeData)" />
-    </div>
+    <template v-if="coffeeData && coffeeData.hasOwnProperty('name')">
+      <productTile :coffee="coffeeData" />
+      <div class="add_to_cart">
+        <back :btn-text="backText" />
+        <buttonItem :btn-text="btnText" @click="addToCart(coffeeData)" />
+      </div>
+    </template>
+    <template v-else>
+      There is some problem with fetching data, please reload.
+    </template>
   </section>
 </template>
