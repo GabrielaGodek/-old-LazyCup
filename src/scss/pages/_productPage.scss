@@ -1,24 +1,20 @@
 @use '../partials/variables' as *;
 
 .product_page {
-  // height: 100%;
-  height: calc(100vh - 92px);
+  height: 100%;
   padding: 0;
   .product_tile {
-    height: 100%;
     &:hover {
       box-shadow: none;
     }
   }
   .tile {
-    height: 100%;
     background-color: $bg_color;
 
     .action {
       display: none;
     }
     .image {
-      margin: 0 auto;
       flex: 1 1 40%;
       min-height: 100px;
       min-width: 200px;
@@ -31,29 +27,21 @@
       flex: 1 1 60%;
       background-color: $header_color;
       height: 100%;
-      padding: 0 15px 34vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: #000;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 400;
+      padding: 20px 28px 70px ;
+      align-items: flex-start;
+      letter-spacing: 0.08px;
+
 
       .title {
-        margin: 15px 0 0 0;
-        font-size: 24px;
+        font-size: 34px;
+        font-weight: 600;
       }
       .details {
         text-align: justify;
         order: 1;
-        color: #000;
-        font-size: 14px;
-        font-style: normal;
-        // font-weight: 400;
-        line-height: 18px;
-        max-height: 85px;
+        font-size: 16px;
         overflow-y: scroll;
+        font-family: 'text--light', sans-serif
       }
       .price_container {
         order: 2;
@@ -62,20 +50,16 @@
         align-items: center;
         gap: 20px;
         .new_price {
-          color: #db1313;
           font-size: 24px;
-          font-style: normal;
-          font-weight: 400;
-          // line-height: 150%; /* 51px */
           & ~ .old_price {
             text-decoration: line-through;
             font-size: 20px;
+            
           }
         }
         .old_price {
           font-size: 25px;
           font-style: normal;
-          font-weight: 400;
         }
       }
     }
@@ -94,9 +78,11 @@
       .description {
         flex: 1 1 50%;
         justify-content: space-evenly;
-        padding-bottom: $header_height;
+        padding-bottom: 50px;
+        height: calc(100vh - #{$header_height});
         .price_container {
           justify-content: space-between;
+        
         }
       }
     }
@@ -106,19 +92,18 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: $footer_height;
-  //   width: 100%;
+  bottom: calc($footer_height);
   display: flex;
   justify-content: space-between;
-  padding: 0 15px;
+  padding: 0 28px 20px;
   align-items: center;
   background-color: $header_color;
-  min-height: 65px;
   .buy {
+    text-transform: uppercase;
     @include btn;
   }
   @media (min-width: $lg_breakpoint) {
     left: 50%;
-    min-height: 100px;
+    bottom: 0;
   }
 }

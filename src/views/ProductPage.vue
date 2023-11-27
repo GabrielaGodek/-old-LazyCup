@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       coffeeData: reactive([]),
-      btnText: ref('Add'),
+      btnText: ref('Buy'),
       btnBuy: ref('Go to cart'),
       backText: ref('Back'),
       isAdded: false

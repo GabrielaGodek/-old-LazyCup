@@ -1,10 +1,18 @@
 @use 'variables' as *;
 // .listing {
+  .tile_wrapper {
+    max-width: vw(409, 163);
+    @media (max-width: $xs_breakpoint) {
+      max-width: none;
+    }
+
+  }
 .product_tile {
   background-color: $header_color;
   height: 100%;
   min-height: 220px;
   border-radius: 4px;
+  width: 100%;
   .tile {
     height: 100%;
     display: flex;
@@ -13,7 +21,7 @@
     .action {
       display: flex;
       justify-content: space-between;
-      padding: 10px 7px 0 10px;
+      padding: 10px 5px 0 10px;
     }
     .image {
       flex: 1 1 50%;
@@ -23,7 +31,7 @@
       }
     }
     .description {
-      padding: 19px 5px;
+      padding: 19px 10px 15px;
       flex: 1 1 50%;
       background-color: $details_color;
       border-radius: 4px;
@@ -32,35 +40,37 @@
       justify-content: space-between;
       gap: 10px;
       .title {
+        font-family: 'text--light', sans-serif;
         text-align: center;
-        font-weight: 800;
-        text-align: center;
-        font-size: 16px;
+        font-size: 20px;
         font-style: normal;
         font-weight: 400;
-        line-height: 19px;
+        @media(min-width: $xl_breakpoint) {
+          font-size: 16px;
+        }
       }
       .price_container {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        
+        h4.new_price, h5.old_price {
+          font-size: 20px;
+          font-style: normal;
+        }
         .new_price {
           color: $promo_color;
-
           text-align: center;
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
+          font-family: 'text--bold', sans-serif;
+          
           & ~ .old_price {
             text-decoration: line-through;
-            font-size: 14px;
-            align-self: center;
+            font-family: 'text--light', sans-serif;
           }
         }
         .old_price {
           text-align: center;
-          font-size: 18px;
+          font-size: 20px;
           font-style: normal;
-          font-weight: 400;
         }
       }
       @media (min-width: $md_breakpoint) {

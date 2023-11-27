@@ -1,7 +1,8 @@
 @use './variables' as *;
 
 .single_transaction {
-  background: rgba(172, 115, 73, 0.23);
+  width: 356px;
+  background: $details_color;
   margin: 10px 0;
   padding: 9px 12px;
   border-radius: 4px;
@@ -12,7 +13,6 @@
   flex-direction: column;
   .accordion_header {
     display: flex;
-    // justify-content: space-around;
     gap: 20px;
     h2 {
       display: inline-block;

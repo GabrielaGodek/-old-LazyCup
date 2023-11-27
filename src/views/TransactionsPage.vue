@@ -62,7 +62,7 @@ export default {
 </script>
 
 <template>
-  <section class="wrapper transactions" v-show="!emptyTransactions">
+  <section class="wrapper listing transactions" v-show="!emptyTransactions">
     <h1>Last transactions</h1>
     <div
       class="single_transaction"

@@ -1,7 +1,7 @@
 <template>
   <div class="action">
-    <div class="cart"><img src="/public/cart_icon.svg" alt="yours basket" @click="click"/></div>
-    <div class="fav"><img src="/public/favorite_icon.svg" alt="yours favorites" /></div>
+    <div class="cart"><img src="/cart_icon.svg" alt="yours basket" @click="click"/></div>
+    <div class="fav"><img src="/favorite_icon.svg" alt="yours favorites" /></div>
   </div>
 </template>
 

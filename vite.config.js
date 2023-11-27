@@ -5,6 +5,19 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    scss: {
+      additionalData: `@import "~@/variables.scss";`
+    },
+    sourceMap: true,
+    loaderOptions: {
+      css: {
+        modules: {
+          auto: () => true
+        }
+      }
+    }
+  },
   test: {
     global: true,
     environment: "jsdom",

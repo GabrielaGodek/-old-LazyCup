@@ -1,13 +1,16 @@
 @use '../partials/variables' as *;
 
 .listing {
-  //   padding: 20px 20px 70px 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  justify-content: space-between;
+  // gap: vw(409, 28);
+  gap: 28px;
+  justify-items: stretch;
+  align-content: space-around;
+  align-items: stretch;
   & > h1 {
     grid-column: span 2;
-    margin-bottom: 20px;
     font-weight: 600;
   }
   @media (max-width: $xs_breakpoint) {

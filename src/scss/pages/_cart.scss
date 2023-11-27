@@ -1,15 +1,13 @@
-@use '../partials/variables' as *;
-
+@use "../partials/variables" as *;
+// @import "../partials/variables";
 .cart_page {
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+  padding: 20px 0;
   // height: calc(100vh - $header_height - 244px);
-  section:not(.empty) {
-    // width: 50%;
-  }
-  section.orders {
+  .orders {
     // height: calc(100vh - 244px);
     overflow: auto;
     @media (min-width: $md_breakpoint) {
@@ -26,7 +24,7 @@
 
     .single_order {
       border-radius: 4px;
-      background: rgba(172, 115, 73, 0.23);
+      background: $details_color;
       margin: 10px 0;
       padding: 9px 12px;
       max-height: 115px;
@@ -36,7 +34,7 @@
       .tile {
         display: flex;
         height: 97px;
-        gap: 32px;
+        gap: vw(409, 32);
         justify-content: space-between;
 
         .image {
@@ -60,53 +58,64 @@
 
           .title {
             flex-basis: 100%;
-            color: #000;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 150%; /* 30px */
+            color: $text_color;
+            font-size: 20px;
+            font-family: "text", sans-serif;
           }
-          .price_container {
+          .action_container {
             display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            .price {
-              color: #000;
+            justify-content: space-between;
+            width: 100%;
+            @media (max-width: $xs_breakpoint) {
+              flex-direction: column;
+              align-items: flex-start;
+            }
+            .price_container {
+              // flex: 1 1 30%;
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+              .price {
+                color: #000;
+                font-family: "text", sans-serif;
 
-              font-size: 18px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 150%; /* 30px */
+                font-size: 20px;
+              }
             }
-          }
-        }
-      }
-      .counter {
-        display: flex;
-        max-width: 132px;
-        // justify-content: end;
-        height: 30px;
-        input {
-          appearance: none;
-          border: none;
-          background-color: $cta_color;
-          color: $header_color;
-          border-radius: 0;
-          width: 30px;
-        
-          &[type='button'] {
-            &:first-child {
-              border-radius: 4px 0 0 4px;
-            }
-            &:last-child {
-              border-radius: 0 4px 4px 0;
-            }
-          }
-          &[type='number'] {
-            text-align: center;
-            &:disabled {
-              background-color: $cta_color;
-              color: $header_color;
+            .counter {
+              // flex: 1 1 30%;
+              display: flex;
+              // max-width: 132px;
+              justify-content: end;
+              // height: 30px;
+              input {
+                appearance: none;
+                border: none;
+                background-color: $cta_color;
+                color: $header_color;
+                border-radius: 0;
+                height: 30px;
+                font-family: "text", sans-serif;
+                font-weight: 800;
+                font-size: 20px;
+                width: 40px;
+                &[type="button"] {
+                  &:first-child {
+                    border-radius: 4px 0 0 4px;
+                  }
+                  &:last-child {
+                    border-radius: 0 4px 4px 0;
+                  }
+                }
+                &[type="number"] {
+                  text-align: center;
+                  padding-left: 14px;
+                  &:disabled {
+                    background-color: $cta_color;
+                    color: $header_color;
+                  }
+                }
+              }
             }
           }
         }
@@ -122,7 +131,7 @@
     // width: 100%;
     background-color: $header_color;
     // border-radius: 10px;
-    padding: 20px 10px calc($header_height + 30px);
+    padding: 20px 10px calc($header_height);
 
     display: flex;
     flex-direction: column;
@@ -136,29 +145,19 @@
       // margin: 5px 0;
     }
     h2 {
-      color: #000;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 150%; /* 30px */
+      font-size: 22px;
+      font-weight: 600;
       text-align: center;
     }
     .discount * {
-      color: #000;
       font-size: 12px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 150%; /* 18px */
+      font-family: "text", sans-serif;
     }
     .total * {
-      color: #000;
+      font-family: "text", sans-serif;
       font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 150%; /* 24px */
     }
     .sum {
-      position: relative;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -169,7 +168,9 @@
       button.checkout {
         width: 100%;
         // padding: 5px 25px;
+        font-family: "text", sans-serif;
         @include btn;
+        
       }
       .back {
         min-width: 100px;
@@ -181,24 +182,29 @@
     flex-direction: row;
     flex: 1 1 50%;
     .summary {
-      padding-top: 82px;
+      padding-top: calc($header_height + 20px);
       left: 50%;
       top: 0;
       height: 100%;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      align-content: flex-end;
+      justify-content: flex-start;
+      // flex-wrap: wrap;
+      // align-content: flex-end;
       gap: 25px;
       h2 {
         align-self: flex-start;
         margin: 0;
-        font-size: 38px;
+        font-size: 34px;
       }
       .discount * {
-        font-size: 26px;
+        font-size: 18px;
       }
       .total * {
-        font-size: 30px;
+        font-size: 20px;
+      }
+      .sum {
+        margin-top: auto;
+        margin-bottom: 0;
+        align-self: flex-end;
       }
     }
   }

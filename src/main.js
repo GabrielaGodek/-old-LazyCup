@@ -11,6 +11,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import { faList } from '@fortawesome/free-solid-svg-icons'
 
 import '@/scss/style.css'
+// import '@/scss/style.css.map'
 
 import App from './App.vue'
 import router from './router'

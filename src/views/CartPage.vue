@@ -70,35 +70,37 @@ export default {
 
 <template>
   <section class="cart_page">
-    <section class="orders" v-show="!emptyBasket">
+    <div class="orders" v-show="!emptyBasket">
       <div class="single_order" v-for="item in this.ordersStore.orders" :key="item.id">
         <div class="tile">
           <div class="image" :id="item.id">
-            <img width="96" height="96" :src="'../../public/coffees_icons/' + item.image" :alt="item.name" />
+            <img width="96" height="96" :src="'/coffees_icons/' + item.image" :alt="item.name" />
           </div>
           <div class="description" :id="item.id">
             <h1 class="title">
               {{ item.name }}
             </h1>
-            <div class="price_container">
-              <h2 class="price" v-if="item.salePrice && item.salePrice !== item.price">
-                {{ item.salePrice }} zł
-              </h2>
-              <h2 class="price" v-else>{{ item.price }} zł</h2>
-            </div>
-            <div class="counter">
-              <input type="button" value="-" @click.prevent="removeProduct(item)" />
-              <input type="number" name="coffee_amount" id="" :value="item.amount" disabled readonly/>
-              <input
-                type="button"
-                value="+"
-                @click.prevent="addProducts(item)"
-              />
+            <div class="action_container">
+              <div class="price_container">
+                <h2 class="price" v-if="item.salePrice && item.salePrice !== item.price">
+                  Price: {{ item.salePrice }} zł
+                </h2>
+                <h2 class="price" v-else>Price: {{ item.price }} zł</h2>
+              </div>
+              <div class="counter">
+                <input type="button" value="-" @click.prevent="removeProduct(item)" />
+                <input type="number" name="coffee_amount" id="" :value="item.amount" disabled readonly/>
+                <input
+                  type="button"
+                  value="+"
+                  @click.prevent="addProducts(item)"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <section class="empty" v-show="emptyBasket">
       <h2>Oops, looks like you don't have any coffee in your basket!</h2>

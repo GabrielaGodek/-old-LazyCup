@@ -86,10 +86,10 @@ export default {
           {{ coffee.description }}
         </p>
         <div class="price_container">
-          <h2 class="new_price" v-if="coffee.salePrice">
+          <h4 class="new_price" v-if="coffee.salePrice">
             {{ coffee.salePrice }} zł
-          </h2>
-          <span class="old_price"> {{ coffee.price }} zł</span>
+          </h4>
+          <h5 class="old_price"> {{ coffee.price }} zł</h5>
         </div>
       </div>
     </div>

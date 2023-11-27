@@ -1,4 +1,4 @@
-@use './variables' as *;
+@use "./variables" as *;
 footer {
   position: fixed;
   left: 0;
@@ -44,6 +44,47 @@ footer {
         &.router-link-active {
           border-top: 2px solid #965858;
         }
+      }
+    }
+  }
+}
+
+@media (min-width: $xl_breakpoint) {
+  footer {
+    bottom: auto;
+    height: $header_height;
+    top: 0;
+    box-shadow: none;
+    width: 600px;
+    left: unset;
+    transition: width .1s ease-in-out;
+    &.scroll {
+      width: 100%;
+      nav {
+        max-width: 600px;
+      }
+    }
+    
+    nav {
+      // max-width: 500px;
+      margin: auto;
+      ul {
+        li {
+          .fa-lg {
+            display: none;
+          }
+          label {
+            font-size: 16px;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+        a.router-link-active {
+          border-bottom: 2px solid #965858;
+          border-top: 0;
+        }
+        
       }
     }
   }
