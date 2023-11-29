@@ -73,6 +73,14 @@
       @include shadow;
       cursor: pointer;
     }
+    .tile {
+      .image {
+        max-height: none;
+      }
+      .description {
+        justify-content: flex-start;
+      }
+    }
   }
 }
 // }

@@ -33,10 +33,11 @@ export default {
   <header ref="target">
     <header-item />
   </header>
-  <div class="relative_header"></div>
+  <!-- <div class="relative_element"></div> -->
   <main>
     <router-view />
   </main>
+  <!-- <div class="relative_element"></div> -->
   <footer :class="{ 'scroll': isScroll }">
     <footer-nav />
   </footer>

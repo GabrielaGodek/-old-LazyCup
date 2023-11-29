@@ -8,6 +8,5 @@
     </div>
   <h1 class="name">LazyCup</h1>
 </div>
-<div class="rel_header"></div>
   
 </template>

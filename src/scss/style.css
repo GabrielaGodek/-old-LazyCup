@@ -71,11 +71,14 @@ body * {
 }
 
 #app {
-  height: -webkit-fill-available;
+  min-height: 100svh;
 }
 
-main {
-  height: -webkit-fill-available;
+.relative_element {
+  height: 40px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
 section {
@@ -309,6 +312,12 @@ footer nav ul a.router-link-active {
     -moz-box-shadow: 0px -8px 12px 0px rgba(0, 0, 0, 0.25);
     cursor: pointer;
   }
+  .product_tile .tile .image {
+    max-height: none;
+  }
+  .product_tile .tile .description {
+    justify-content: flex-start;
+  }
 }
 
 .wrapper.transactions {
@@ -374,10 +383,10 @@ footer nav ul a.router-link-active {
 }
 
 .welcome {
-  height: -webkit-fill-available;
+  height: calc(100svh - 42px);
 }
 .welcome .wrapper {
-  height: -webkit-fill-available;
+  height: calc(100svh - 42px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -691,7 +700,7 @@ footer nav ul a.router-link-active {
 }
 
 .product_page {
-  height: 100%;
+  height: calc(100svh - 42px);
   padding: 0;
 }
 .product_page .product_tile:hover {
@@ -706,7 +715,7 @@ footer nav ul a.router-link-active {
 .product_page .tile .image {
   flex: 1 1 40%;
   min-height: 100px;
-  min-width: 200px;
+  max-height: none;
 }
 .product_page .tile .image img {
   height: 100%;
@@ -719,6 +728,7 @@ footer nav ul a.router-link-active {
   padding: 20px 28px 70px;
   align-items: flex-start;
   letter-spacing: 0.08px;
+  justify-content: flex-start;
 }
 .product_page .tile .description .title {
   font-size: 24px;
@@ -729,7 +739,6 @@ footer nav ul a.router-link-active {
   order: 1;
   font-size: 14px;
   line-height: 140%;
-  overflow-y: scroll;
 }
 .product_page .tile .description .price_container {
   order: 2;
@@ -765,9 +774,9 @@ footer nav ul a.router-link-active {
   }
   .product_page .tile .description {
     flex: 1 1 50%;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     padding-bottom: 50px;
-    height: calc(100vh - 42px);
+    gap: 50px;
   }
   .product_page .tile .description .price_container {
     justify-content: space-between;
@@ -973,6 +982,7 @@ footer nav ul a.router-link-active {
 }
 .cart_page .summary {
   position: fixed;
+  height: 286px;
   bottom: 0;
   right: 0;
   left: 0;
@@ -980,7 +990,6 @@ footer nav ul a.router-link-active {
   padding: 20px 10px 60px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 10px;
 }
 .cart_page .summary .row {

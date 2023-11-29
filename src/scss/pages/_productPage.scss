@@ -1,7 +1,7 @@
 @use '../partials/variables' as *;
 
 .product_page {
-  height: 100%;
+  height: calc(100svh - $header_height);
   padding: 0;
   .product_tile {
     &:hover {
@@ -17,7 +17,8 @@
     .image {
       flex: 1 1 40%;
       min-height: 100px;
-      min-width: 200px;
+      // min-width: 200px;
+      max-height: none;
       img {
         height: 100%;
         align-self: center;
@@ -30,6 +31,7 @@
       padding: 20px 28px 70px ;
       align-items: flex-start;
       letter-spacing: 0.08px;
+      justify-content: flex-start;
 
 
       .title {
@@ -41,8 +43,6 @@
         order: 1;
         font-size: 14px;
         line-height: 140%;
-        overflow-y: scroll;
-        // font-family: 'text--light', sans-serif
       }
       .price_container {
         order: 2;
@@ -78,9 +78,10 @@
       }
       .description {
         flex: 1 1 50%;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         padding-bottom: 50px;
-        height: calc(100vh - #{$header_height});
+        // height: calc(100vh - #{$header_height});
+        gap: 50px;
         .price_container {
           justify-content: space-between;
         
