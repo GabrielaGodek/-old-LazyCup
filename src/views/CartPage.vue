@@ -89,7 +89,7 @@ export default {
               </div>
               <div class="counter">
                 <input type="button" value="-" @click.prevent="removeProduct(item)" />
-                <input type="number" name="coffee_amount" id="" :value="item.amount" disabled readonly/>
+                <input type="number" name="coffee_amount" id="" :value="item.amount" readonly/>
                 <input
                   type="button"
                   value="+"

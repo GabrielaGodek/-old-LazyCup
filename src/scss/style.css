@@ -40,10 +40,13 @@
 }
 html {
   background-color: white;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-#app,
 body {
+  flex-grow: 1;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -67,17 +70,17 @@ body * {
   padding: 0;
 }
 
-main {
-  min-height: calc(100vh - 82px);
+#app {
+  height: -webkit-fill-available;
 }
-@media (min-width: 600px) {
-  main {
-    min-height: calc(100vh - 42px);
-  }
+
+main {
+  height: -webkit-fill-available;
 }
 
 section {
-  padding: 20px 28px;
+  height: -webkit-fill-available;
+  padding: 20px 15px 40px;
 }
 
 .product_page .action {
@@ -234,19 +237,9 @@ footer nav ul a.router-link-active {
     border-top: 0;
   }
 }
-.tile_wrapper {
-  max-width: 39.8533007335vw;
-}
-@media (max-width: 350px) {
-  .tile_wrapper {
-    max-width: none;
-  }
-}
-
 .product_tile {
   background-color: white;
   height: 100%;
-  min-height: 220px;
   border-radius: 4px;
   width: 100%;
 }
@@ -262,15 +255,14 @@ footer nav ul a.router-link-active {
   padding: 10px 5px 0 10px;
 }
 .product_tile .tile .image {
-  flex: 1 1 50%;
   margin: 0 auto;
+  max-height: 150px;
 }
 .product_tile .tile .image img {
-  width: 100%;
+  height: 100%;
 }
 .product_tile .tile .description {
   padding: 19px 10px 15px;
-  flex: 1 1 50%;
   background-color: #ccbcac;
   border-radius: 4px;
   display: flex;
@@ -280,7 +272,7 @@ footer nav ul a.router-link-active {
 }
 .product_tile .tile .description .title {
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
 }
@@ -294,8 +286,7 @@ footer nav ul a.router-link-active {
   grid-template-columns: 1fr 1fr;
 }
 .product_tile .tile .description .price_container h4.new_price, .product_tile .tile .description .price_container h5.old_price {
-  font-size: 20px;
-  font-style: normal;
+  font-size: 16px;
 }
 .product_tile .tile .description .price_container .new_price {
   color: #f7505a;
@@ -310,30 +301,23 @@ footer nav ul a.router-link-active {
   font-size: 20px;
   font-style: normal;
 }
-.product_tile:hover {
-  background: #FFF;
-  box-shadow: 0px -8px 12px 0px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: 0px -8px 12px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px -8px 12px 0px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
+@media (min-width: 800px) {
+  .product_tile:hover {
+    background: #FFF;
+    box-shadow: 0px -8px 12px 0px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px -8px 12px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px -8px 12px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+  }
 }
 
 .wrapper.transactions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
-  gap: 28px;
-  justify-items: stretch;
-  align-content: space-around;
-  align-items: stretch;
+  grid-template-columns: 1fr;
 }
-@media (max-width: 350px) {
-  .wrapper.transactions {
-    grid-template-columns: 1fr;
-  }
-  .wrapper.transactions h1 {
-    grid-column: span 1;
-  }
+.wrapper.transactions h1 {
+  grid-column: span 1;
+  font-family: "text--bold", sans-serif;
 }
 @media (min-width: 600px) {
   .wrapper.transactions {
@@ -390,17 +374,16 @@ footer nav ul a.router-link-active {
 }
 
 .welcome {
-  height: calc(100vh - 42px);
+  height: -webkit-fill-available;
 }
 .welcome .wrapper {
-  height: 100%;
+  height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.welcome .wrapper svg {
-  height: 40vh;
+  padding-bottom: 40px svg;
+  padding-bottom-height: 40vh;
 }
 .welcome .clickToStart {
   color: #262626;
@@ -738,13 +721,14 @@ footer nav ul a.router-link-active {
   letter-spacing: 0.08px;
 }
 .product_page .tile .description .title {
-  font-size: 34px;
+  font-size: 24px;
   font-weight: 600;
 }
 .product_page .tile .description .details {
   text-align: justify;
   order: 1;
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 140%;
   overflow-y: scroll;
 }
 .product_page .tile .description .price_container {
@@ -835,7 +819,7 @@ footer nav ul a.router-link-active {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
-  gap: 28px;
+  gap: 15px;
   justify-items: stretch;
   align-content: space-around;
   align-items: stretch;
@@ -954,9 +938,9 @@ footer nav ul a.router-link-active {
   align-items: center;
 }
 .cart_page .orders .single_order .tile .description .action_container .price_container .price {
-  color: #000;
-  font-family: "text", sans-serif;
-  font-size: 20px;
+  color: #262626;
+  font-family: "text--light", sans-serif;
+  font-size: 14px;
 }
 .cart_page .orders .single_order .tile .description .action_container .counter {
   display: flex;
@@ -982,7 +966,6 @@ footer nav ul a.router-link-active {
 }
 .cart_page .orders .single_order .tile .description .action_container .counter input[type=number] {
   text-align: center;
-  padding-left: 14px;
 }
 .cart_page .orders .single_order .tile .description .action_container .counter input[type=number]:disabled {
   background-color: #4f483e;
@@ -990,12 +973,11 @@ footer nav ul a.router-link-active {
 }
 .cart_page .summary {
   position: fixed;
-  height: 286px;
   bottom: 0;
   right: 0;
   left: 0;
   background-color: white;
-  padding: 20px 10px 42px;
+  padding: 20px 10px 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1011,13 +993,10 @@ footer nav ul a.router-link-active {
   font-size: 22px;
   font-weight: 600;
   text-align: center;
+  font-family: "header", sans-serif;
 }
-.cart_page .summary .discount * {
-  font-size: 12px;
-  font-family: "text", sans-serif;
-}
-.cart_page .summary .total * {
-  font-family: "text", sans-serif;
+.cart_page .summary .total *, .cart_page .summary .discount * {
+  font-family: "text--light", sans-serif;
   font-size: 16px;
 }
 .cart_page .summary .sum {
@@ -1028,10 +1007,9 @@ footer nav ul a.router-link-active {
   justify-content: center;
   align-items: center;
   min-height: 50px;
+  margin-top: 15px;
 }
 .cart_page .summary .sum button.checkout {
-  width: 100%;
-  font-family: "text", sans-serif;
   appearance: none;
   border: none;
   background-color: #4f483e;
@@ -1045,6 +1023,11 @@ footer nav ul a.router-link-active {
   font-size: 14px;
   max-height: 30px;
   height: 100%;
+  width: 60%;
+  font-family: "text--bold", sans-serif;
+  text-transform: uppercase;
+  padding: 10px 45px;
+  max-height: none;
 }
 @media (min-width: 600px) {
   .cart_page .summary .sum button.checkout {

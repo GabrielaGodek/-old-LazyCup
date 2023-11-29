@@ -76,10 +76,9 @@
               justify-content: space-evenly;
               align-items: center;
               .price {
-                color: #000;
-                font-family: "text", sans-serif;
-
-                font-size: 20px;
+                color: $text_color;
+                font-family: "text--light", sans-serif;
+                font-size: 14px;
               }
             }
             .counter {
@@ -109,7 +108,7 @@
                 }
                 &[type="number"] {
                   text-align: center;
-                  padding-left: 14px;
+                  // padding-left: 14px;
                   &:disabled {
                     background-color: $cta_color;
                     color: $header_color;
@@ -124,14 +123,14 @@
   }
   .summary {
     position: fixed;
-    height: calc($header_height + 244px);
+    // height: calc($header_height + 244px);
     bottom: 0;
     right: 0;
     left: 0;
     // width: 100%;
     background-color: $header_color;
     // border-radius: 10px;
-    padding: 20px 10px calc($header_height);
+    padding: 20px 10px calc($header_height + 18px);
 
     display: flex;
     flex-direction: column;
@@ -148,13 +147,14 @@
       font-size: 22px;
       font-weight: 600;
       text-align: center;
+      font-family: "header", sans-serif;
     }
-    .discount * {
-      font-size: 12px;
-      font-family: "text", sans-serif;
-    }
-    .total * {
-      font-family: "text", sans-serif;
+    // .discount * {
+    //   font-size: 16px;
+    //   font-family: "text--light", sans-serif;
+    // }
+    .total *, .discount * {
+      font-family: "text--light", sans-serif;
       font-size: 16px;
     }
     .sum {
@@ -165,11 +165,15 @@
       justify-content: center;
       align-items: center;
       min-height: 50px;
+      margin-top: 15px;
       button.checkout {
-        width: 100%;
-        // padding: 5px 25px;
-        font-family: "text", sans-serif;
         @include btn;
+        width: 60%;
+        // padding: 5px 25px;
+        font-family: "text--bold", sans-serif;
+        text-transform: uppercase;
+        padding: 10px 45px;
+        max-height: none;
         
       }
       .back {

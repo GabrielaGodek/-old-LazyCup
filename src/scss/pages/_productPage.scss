@@ -33,13 +33,14 @@
 
 
       .title {
-        font-size: 34px;
+        font-size: 24px;
         font-weight: 600;
       }
       .details {
         text-align: justify;
         order: 1;
-        font-size: 16px;
+        font-size: 14px;
+        line-height: 140%;
         overflow-y: scroll;
         // font-family: 'text--light', sans-serif
       }

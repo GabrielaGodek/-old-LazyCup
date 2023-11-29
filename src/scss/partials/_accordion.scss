@@ -2,19 +2,12 @@
 
 .wrapper.transactions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
-  // gap: vw(409, 28);
-  gap: 28px;
-  justify-items: stretch;
-  align-content: space-around;
-  align-items: stretch;
-  @media (max-width: $xs_breakpoint) {
-    grid-template-columns: 1fr;
-    h1 {
-      grid-column: span 1;
-    }
+  grid-template-columns: 1fr;
+  h1 {
+    grid-column: span 1;
+    font-family: 'text--bold', sans-serif;
   }
+
   @media (min-width: $md_breakpoint) {
     grid-template-columns: 1fr 1fr 1fr;
     h1 {
