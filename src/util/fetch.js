@@ -7,7 +7,9 @@ const getCoffees = async (url = '/api/') => {
     try {
         // const response = await fetch(url, { mode: 'no-cors' });
         // const response = await fetch(url);
-        const response = await fetch('https://nodejs-database.onrender.com/api/v1/coffees/');
+        const response = await fetch('https://nodejs-database.onrender.com/api/v1/coffees/', {
+            credentials: 'include',
+          });
         if (response && !response.ok) {
             const error = response.status;
             const details = await response.text(); 
