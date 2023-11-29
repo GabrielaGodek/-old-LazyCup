@@ -1,12 +1,34 @@
 @use './variables' as *;
 
+.wrapper.transactions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  // gap: vw(409, 28);
+  gap: 28px;
+  justify-items: stretch;
+  align-content: space-around;
+  align-items: stretch;
+  @media (max-width: $xs_breakpoint) {
+    grid-template-columns: 1fr;
+    h1 {
+      grid-column: span 1;
+    }
+  }
+  @media (min-width: $md_breakpoint) {
+    grid-template-columns: 1fr 1fr 1fr;
+    h1 {
+      grid-column: span 3;
+    }
+  }
+ 
+}
 .single_transaction {
-  width: 356px;
   background: $details_color;
   margin: 10px 0;
   padding: 9px 12px;
   border-radius: 4px;
-  max-height: 200px;
+  max-height: 40px;
   transition: all 0.5s ease-out;
 
   display: flex;
@@ -17,6 +39,8 @@
     h2 {
       display: inline-block;
       font-size: 20px;
+      text-align: center;
+      width: 100%;
     }
   }
   &.open_qr {

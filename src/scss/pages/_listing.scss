@@ -31,7 +31,7 @@
       grid-column: span 4;
     }
   }
-  @media (min-width: 1280px) {
+  @media (min-width: $xl_breakpoint) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     h1 {
       grid-column: span 6;

@@ -121,7 +121,7 @@ a {
 p,
 span,
 div {
-  font-family: "text", sans-serif;
+  font-family: "text--light", sans-serif;
   font-weight: normal;
   color: #262626;
 }
@@ -279,7 +279,6 @@ footer nav ul a.router-link-active {
   gap: 10px;
 }
 .product_tile .tile .description .title {
-  font-family: "text--light", sans-serif;
   text-align: center;
   font-size: 20px;
   font-style: normal;
@@ -305,7 +304,6 @@ footer nav ul a.router-link-active {
 }
 .product_tile .tile .description .price_container .new_price ~ .old_price {
   text-decoration: line-through;
-  font-family: "text--light", sans-serif;
 }
 .product_tile .tile .description .price_container .old_price {
   text-align: center;
@@ -320,13 +318,38 @@ footer nav ul a.router-link-active {
   cursor: pointer;
 }
 
+.wrapper.transactions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  gap: 28px;
+  justify-items: stretch;
+  align-content: space-around;
+  align-items: stretch;
+}
+@media (max-width: 350px) {
+  .wrapper.transactions {
+    grid-template-columns: 1fr;
+  }
+  .wrapper.transactions h1 {
+    grid-column: span 1;
+  }
+}
+@media (min-width: 600px) {
+  .wrapper.transactions {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .wrapper.transactions h1 {
+    grid-column: span 3;
+  }
+}
+
 .single_transaction {
-  width: 356px;
   background: #ccbcac;
   margin: 10px 0;
   padding: 9px 12px;
   border-radius: 4px;
-  max-height: 200px;
+  max-height: 40px;
   transition: all 0.5s ease-out;
   display: flex;
   flex-direction: column;
@@ -338,6 +361,8 @@ footer nav ul a.router-link-active {
 .single_transaction .accordion_header h2 {
   display: inline-block;
   font-size: 20px;
+  text-align: center;
+  width: 100%;
 }
 .single_transaction.open_qr {
   max-height: 2000px;
@@ -721,7 +746,6 @@ footer nav ul a.router-link-active {
   order: 1;
   font-size: 16px;
   overflow-y: scroll;
-  font-family: "text--light", sans-serif;
 }
 .product_page .tile .description .price_container {
   order: 2;
@@ -782,7 +806,7 @@ footer nav ul a.router-link-active {
   appearance: none;
   border: none;
   background-color: #4f483e;
-  padding: 10px 12.2549019608vw;
+  padding: 10px 30px;
   border-radius: 4px;
   display: flex;
   justify-content: center;
@@ -844,7 +868,7 @@ footer nav ul a.router-link-active {
     grid-column: span 4;
   }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1200px) {
   .listing {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
@@ -1011,7 +1035,7 @@ footer nav ul a.router-link-active {
   appearance: none;
   border: none;
   background-color: #4f483e;
-  padding: 10px 12.2549019608vw;
+  padding: 10px 30px;
   border-radius: 4px;
   display: flex;
   justify-content: center;

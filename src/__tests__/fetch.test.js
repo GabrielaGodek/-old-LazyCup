@@ -1,32 +1,12 @@
-// import { it, expect, describe, vi } from 'vitest';
-// import { shallowMount } from '@vue/test-utils';
-// import fetch from 'node-fetch';
-// import Listing from '@/views/ListingPage.vue';
-// import ProductTile from '@/components/ProductTile.vue';
-// import { getCoffees } from '@/util/fetch';
+import { describe, expect, it } from 'vitest'
+import { getCoffees } from '@/util/fetch';
 
-// describe('fetch data', () => {
-//   it('should render a list of elements from API', async () => {
+describe('fetch data', () => {
+  it('should GET request to fetch available coffees and returns the result', async () => {
+    const data = await getCoffees('https://nodejs-database.onrender.com/api/v1/coffees/')
 
-//     vi.mock('node-fetch');
-//     fetch.mockReturnValue(Promise.resolve({
-//       json: () => Promise.resolve([]), 
-//     }));
-
-//     const coffees = await getCoffees();
-
-//     const component = shallowMount(Listing, {
-//       data() {
-//         return {
-//             coffees
-//         };
-//       },
-//     });
-
-//     const items = component.findAllComponents(ProductTile);
-
-//     items.wrappers.forEach((item, index) => {
-//       expect(item.props().coffee).toEqual(coffees[index]);
-//     });
-//   });
-// });
+    expect(data.length).toBeGreaterThan(0)
+    expect(data).toBeInstanceOf(Array)
+    expect(data[0]).toHaveProperty('id')
+  })
+})

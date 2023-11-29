@@ -40,7 +40,7 @@
       justify-content: space-between;
       gap: 10px;
       .title {
-        font-family: 'text--light', sans-serif;
+        // font-family: 'text--light', sans-serif;
         text-align: center;
         font-size: 20px;
         font-style: normal;
@@ -64,7 +64,7 @@
           
           & ~ .old_price {
             text-decoration: line-through;
-            font-family: 'text--light', sans-serif;
+            // font-family: 'text--light', sans-serif;
           }
         }
         .old_price {

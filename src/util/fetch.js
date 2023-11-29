@@ -1,15 +1,15 @@
 import { useOrdersStore } from '@/store/orders';
 import pinia from '@/store/pinia'
 
-const getCoffees = async () => {
+const getCoffees = async (url = '/api/') => {
     const ordersStore = useOrdersStore(pinia);
 
     try {
-        const response = await fetch('/api/v1/coffees/', { mode: 'no-cors' });
+        const response = await fetch(url, { mode: 'no-cors' });
         // const response = await fetch('https://nodejs-database.onrender.com/api/v1/coffees/', { mode: 'no-cors' });
-        if (!response.ok) {
+        if (response && !response.ok) {
             const error = response.status;
-            const details = await response.text(); // Get the response body for more details
+            const details = await response.text(); 
             console.error(`HTTP error! Status: ${error}. Details: ${details}`);
             throw new Error(`HTTP error! Status: ${error}. Details: ${details}`);
         }

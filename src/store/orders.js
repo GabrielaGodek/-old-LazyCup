@@ -25,8 +25,9 @@ export const useOrdersStore = defineStore('orders', {
       }
     },
     removeItem(cartItem) {
-      let i = this.orders.indexOf(cartItem)
-      if (this.orders[i].amount != 1) {
+      let i = this.orders.indexOf(cartItem) || 0;
+      console.log(this.orders);
+      if (this.orders[i] && this.orders[i].amount != 1) {
         this.orders[i].amount--
       } else {
         this.orders = this.orders.filter((item) => {

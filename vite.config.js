@@ -30,10 +30,11 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': {
-        target: 'https://nodejs-database.onrender.com',
+      '^/api/.*': {
+        target: 'https://nodejs-database.onrender.com/api/v1/coffees/',
         changeOrigin: true,
-        pathRewrite: { '^/api': '/api/v1' }
+        // pathRewrite: { '^/api': '/api/v1' }
+        rewrite: (path) => path.replace(/^\/api/, ''),
       }
     }
   }

@@ -5,7 +5,7 @@ import { useOrdersStore } from '@/store/orders';
 describe('stores', () => {
     const coffeeToManipulate = {
         id: '123',
-        amount: 2,
+        amount: 1,
         name: 'Espresso',
         price: 12,
         salePrice: 10,
@@ -15,6 +15,7 @@ describe('stores', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
     });
+
     it('should add item to the store', () => {
         const store = useOrdersStore();
         
@@ -22,10 +23,11 @@ describe('stores', () => {
 
         expect(store.orders).toContainEqual(coffeeToManipulate)
     });
+    
     it('should remove item from the store', () => {
         const store = useOrdersStore();
         
-        // store.addItem(coffeeToManipulate)
+        store.addItem(coffeeToManipulate)
         store.removeItem(coffeeToManipulate)
 
         expect(store.orders).not.toContainEqual(coffeeToManipulate)
