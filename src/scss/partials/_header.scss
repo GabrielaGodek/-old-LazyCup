@@ -1,14 +1,12 @@
 @use 'variables' as *;
 
 .header {
-  // position: absolute;
   height: $header_height;
   @include f_center;
   justify-content: flex-start;
   padding: 0 $header_padding;
   background-color: $header_color;
   gap: 10px;
-  // @include shadow;
   .cup img {
     vertical-align: bottom;
   }

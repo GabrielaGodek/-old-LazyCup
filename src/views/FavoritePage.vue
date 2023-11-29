@@ -1,5 +1,4 @@
 <script>
-// import { ref } from 'vue'
 import { mapStores } from 'pinia'
 import { useOrdersStore } from '@/store/orders'
 import ProductTile from '@/components/productTile.vue'

@@ -1,14 +1,13 @@
 @use "../partials/variables" as *;
-// @import "../partials/variables";
+
 .cart_page {
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  padding: 20px 0;
-  // height: calc(100vh - $header_height - 244px);
+  padding: 0;
   .orders {
-    // height: calc(100vh - 244px);
+    height: calc(100vh - 231px);
     overflow: auto;
     @media (min-width: $md_breakpoint) {
       height: 100%;
@@ -38,8 +37,6 @@
         justify-content: space-between;
 
         .image {
-          // max-width: 45vw;
-          // width: 100%;
           flex: 1 1 30%;
           text-align: center;
           picture {
@@ -53,8 +50,6 @@
           flex-wrap: wrap;
           justify-content: space-between;
           align-items: center;
-          // max-width: 55vw;
-          // width: 100%;
 
           .title {
             flex-basis: 100%;
@@ -71,7 +66,6 @@
               align-items: flex-start;
             }
             .price_container {
-              // flex: 1 1 30%;
               display: flex;
               justify-content: space-evenly;
               align-items: center;
@@ -82,11 +76,8 @@
               }
             }
             .counter {
-              // flex: 1 1 30%;
               display: flex;
-              // max-width: 132px;
               justify-content: end;
-              // height: 30px;
               input {
                 appearance: none;
                 border: none;
@@ -108,7 +99,7 @@
                 }
                 &[type="number"] {
                   text-align: center;
-                  // padding-left: 14px;
+
                   &:disabled {
                     background-color: $cta_color;
                     color: $header_color;
@@ -123,25 +114,22 @@
   }
   .summary {
     position: fixed;
-    height: calc($header_height + 244px);
+    height: calc($header_height + 234px);
     bottom: 0;
     right: 0;
     left: 0;
-    // width: 100%;
+
     background-color: $header_color;
-    // border-radius: 10px;
     padding: 20px 10px calc($header_height + 18px);
 
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
     gap: 10px;
     .row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 24px;
-      // margin: 5px 0;
     }
     h2 {
       font-size: 22px;
@@ -149,10 +137,7 @@
       text-align: center;
       font-family: "header", sans-serif;
     }
-    // .discount * {
-    //   font-size: 16px;
-    //   font-family: "text--light", sans-serif;
-    // }
+
     .total *, .discount * {
       font-family: "text--light", sans-serif;
       font-size: 16px;
@@ -169,7 +154,7 @@
       button.checkout {
         @include btn;
         width: 60%;
-        // padding: 5px 25px;
+
         font-family: "text--bold", sans-serif;
         text-transform: uppercase;
         padding: 10px 45px;
@@ -191,8 +176,7 @@
       top: 0;
       height: 100%;
       justify-content: flex-start;
-      // flex-wrap: wrap;
-      // align-content: flex-end;
+
       gap: 25px;
       h2 {
         align-self: flex-start;

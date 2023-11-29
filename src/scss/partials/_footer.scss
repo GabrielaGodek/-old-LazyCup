@@ -4,7 +4,6 @@ footer {
   left: 0;
   bottom: 0;
   right: 0;
-  // height: $footer_height;
   background-color: $header_color;
   @include shadow;
   nav {
@@ -16,16 +15,13 @@ footer {
       height: 100%;
       padding: 0 $header_padding;
       display: flex;
-      // @include f_center;
+
       justify-content: space-between;
       align-items: center;
       gap: 15px;
       li {
         flex: 1 1 25%;
-        // height: 40px;
-        // width: 35px;
         position: relative;
-        // padding: 3px;
         label {
           font-size: 12px;
           line-height: 13px;
@@ -66,7 +62,6 @@ footer {
     }
     
     nav {
-      // max-width: 500px;
       margin: auto;
       ul {
         li {

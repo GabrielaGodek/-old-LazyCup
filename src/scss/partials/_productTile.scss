@@ -3,7 +3,6 @@
 .product_tile {
   background-color: $header_color;
   height: 100%;
-  // min-height: 220px;
   border-radius: 4px;
   width: 100%;
   .tile {
@@ -17,7 +16,6 @@
       padding: 10px 5px 0 10px;
     }
     .image {
-      // flex: 1 1 50%;
       margin: 0 auto;
       max-height: 150px;
       img {
@@ -26,7 +24,6 @@
     }
     .description {
       padding: 19px 10px 15px;
-      // flex: 1 1 50%;
       background-color: $details_color;
       border-radius: 4px;
       display: flex;
@@ -34,7 +31,6 @@
       justify-content: space-between;
       gap: 10px;
       .title {
-        // font-family: 'text--light', sans-serif;
         text-align: center;
         font-size: 16px;
         font-style: normal;
@@ -83,4 +79,4 @@
     }
   }
 }
-// }
+

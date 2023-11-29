@@ -9,7 +9,6 @@
 import qrCodeItem from '../components/qrItem.vue'
 
 import { reactive } from 'vue'
-// import { useRouter } from 'vue-router'
 import { mapStores } from 'pinia'
 import { useOrdersStore } from '@/store/orders'
 
@@ -66,7 +65,6 @@ export default {
   }
 }
 .slide {
-  // z-index: -1;
   transform: translateY(60px);
   -webkit-animation: slide 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
   animation: slide 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;

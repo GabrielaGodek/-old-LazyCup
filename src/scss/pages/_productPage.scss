@@ -17,7 +17,7 @@
     .image {
       flex: 1 1 40%;
       min-height: 100px;
-      // min-width: 200px;
+
       max-height: none;
       img {
         height: 100%;
@@ -80,7 +80,6 @@
         flex: 1 1 50%;
         justify-content: flex-start;
         padding-bottom: 50px;
-        // height: calc(100vh - #{$header_height});
         gap: 50px;
         .price_container {
           justify-content: space-between;

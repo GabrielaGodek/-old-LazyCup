@@ -5,8 +5,6 @@ const getCoffees = async (url = '/api/') => {
     const ordersStore = useOrdersStore(pinia);
 
     try {
-        // const response = await fetch(url, { mode: 'no-cors' });
-        // const response = await fetch(url);
         const response = await fetch('https://nodejs-database.onrender.com/api/v1/coffees/', {
             method: 'GET',
           });

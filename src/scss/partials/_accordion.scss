@@ -3,6 +3,7 @@
 .wrapper.transactions {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 10px;
   h1 {
     grid-column: span 1;
     font-family: 'text--bold', sans-serif;

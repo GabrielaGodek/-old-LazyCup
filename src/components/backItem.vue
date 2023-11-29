@@ -1,5 +1,4 @@
 <script>
-// import { $router } from "vue-router"
 export default {
     name: 'backBtn',
     props: {

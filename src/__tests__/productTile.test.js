@@ -1,11 +1,7 @@
 import { it, expect, describe } from 'vitest';
 import ProductTile from '@/components/productTile.vue';
 import vueRouter, { useRouter } from 'vue-router'
-import { shallowMount, mount, createLocalVue } from '@vue/test-utils';
-
-// const localVue = createLocalVue();
-// localVue.use(vueRouter);
-// const router = new vueRouter();
+import { shallowMount, mount, createLocalVue } from '@vue/test-utils'
 
 describe('ProductTile.vue', () => {
     const coffee = {
@@ -50,30 +46,4 @@ describe('ProductTile.vue', () => {
         expect(wrapper.find('.old_price').text()).toBe(`${coffee.price} zł`);
     });
 
-    // it('should navigate to coffee details page on image/description click', async () => {
-    //     const wrapper = mount(ProductTile, {
-    //         localVue,
-    //         router,
-    //         props: { coffee },
-    //     });
-
-    //     // const router = useRouter()
-    //     console.log(wrapper.vm.$route);
-    //     // const id = router.currentRoute.value.params.id
-    //     // await wrapper.vm.$nextTick();
-        
-    //     // await wrapper.find('.image').trigger('click');
-        
-    //     // await wrapper.vm.$nextTick();
-
-    //     // expect(wrapper.vm.$route.params.id).toBe(coffee._id);
-    //     // expect(wrapper.vm.$route.params.id).toBe(coffee._id);
-
-    //     // expect(router.currentRoute.value.params.id).toBe(coffee._id);
-    
-    //     // Simulate click on description.
-    //     // wrapper.find('.description').trigger('click');
-    //     // expect(router.currentRoute.value).toBe('coffee');
-    //     // expect(router.currentRoute.value.params.id).toBe(coffee._id);
-    // });
 });

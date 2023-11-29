@@ -1,6 +1,4 @@
 <script>
-// import SummaryPage from '@/views/SummaryPage.vue'
-// import buttonItem from '@/components/buttonItem.vue'
 import backItem from '@/components/backItem.vue'
 import { ref, reactive } from 'vue'
 import { mapStores, mapActions } from 'pinia'
@@ -19,7 +17,6 @@ export default {
   },
   computed: {
     ...mapStores(useOrdersStore),
-    // ...mapWritableState(useOrdersStore),
     totalPrice() {
       return this.ordersStore.orders.reduce(
         (total, item) =>

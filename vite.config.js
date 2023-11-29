@@ -3,7 +3,6 @@ import { createProxy } from 'http-proxy-middleware';
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   css: {
     scss: {
@@ -33,7 +32,6 @@ export default defineConfig({
       '^/api/.*': {
         target: 'https://nodejs-database.onrender.com/api/v1/coffees/',
         changeOrigin: true,
-        // pathRewrite: { '^/api': '/api/v1' }
         rewrite: (path) => path.replace(/^\/api/, ''),
       }
     }

@@ -14,6 +14,8 @@ dist
 coverage
 *.local
 
+style.css.map
+
 .vscode
 vercel.json
 .gitignore

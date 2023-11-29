@@ -6,7 +6,6 @@ import ProductPage from '@/views/ProductPage.vue'
 import CartPage from '@/views/CartPage.vue'
 import FavoritePage from '@/views/FavoritePage.vue'
 import SummaryPage from '@/views/SummaryPage.vue'
-// import ProductTile from '@/components/productTile.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

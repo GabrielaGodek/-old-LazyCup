@@ -31,20 +31,18 @@ body * {
   padding: 0;
 }
 #app {
-  // height: -webkit-fill-available;
+
   min-height: 100svh;
 }
 .relative_element {
   height: 40px;
   width: 100%;
-  // position: absolute;
+
   bottom: 0;
   left: 0;
 
 }
 section {
-  height: -webkit-fill-available;
-  // min-height: 100svh;
   padding: 20px 15px v.$footer_height;
 }
 

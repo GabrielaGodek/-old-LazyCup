@@ -1,4 +1,3 @@
-// @use "sass:math";
 @function vw($w, $h) {
   $vw: calc($h / ($w / 100vw));
   @return $vw;

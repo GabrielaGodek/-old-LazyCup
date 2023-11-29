@@ -34,40 +34,4 @@ describe('router', () => {
 
           expect(wrapper.exists()).toBe(true);
     })
-    // it('should render successfully when navigating to the /products route, and contains more than one ProductTile component', async () => {
-    //     const router = createRouter({
-    //         history: createWebHistory(),
-    //         routes: [{
-    //             path: '/products',
-    //             name: 'products',
-    //             component: ListingPage
-    //         }]
-    //     })
-
-        
-    //     router.push('/products')
-    //     await router.isReady()
-        
-    //     const mockApi = {
-    //         fetchData: vi.fn(() => Promise.resolve(mockData))
-    //       }
-
-    //     const wrapper = mount(ListingPage, {
-    //         global: { plugins: [router] },
-    //         props: {
-    //             coffeesData: mockApi
-    //           }
-    //       });
-
-    //       console.log(wrapper.html());
-    //       console.log(mockApi.fetchData.mockReturnValue());
-          
-    //       await wrapper.vm.$nextTick(() => {
-    //         expect(wrapper.exists()).toBe(true);
-    //         const productTiles = wrapper.findAllComponents(ProductTile);
-    //         expect(productTiles.length).toBeGreaterThan(0);
-    //         done()
-    //       })
-          
-    // })
 })
