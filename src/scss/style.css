@@ -301,7 +301,7 @@ footer nav ul a.router-link-active {
 }
 .product_tile .tile .description .price_container .old_price {
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
 }
 @media (min-width: 800px) {
