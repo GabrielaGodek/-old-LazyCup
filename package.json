@@ -9,7 +9,8 @@
     "test:unit": "vitest --environment jsdom --ui",
     "test:coverage": "vitest run --coverage",
     "format": "prettier --write src/",
-    "sass": "sass --watch --update --style=expanded src/scss:src/scss"
+    "sass": "sass --watch --update --style=expanded src/scss:src/scss",
+    "sass:prod": "sass --no-source-map --style=compressed src/scss:src/scss"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",

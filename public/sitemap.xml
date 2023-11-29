@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 	<url>
 		<loc>
-			https://lazy-cup.vercel.app/products
+			https://lazycup.vercel.app/products
 		</loc>
 		<changefreq>
 			monthly
@@ -13,7 +13,7 @@
 	</url>
 	<url>
 		<loc>
-			https://lazy-cup.vercel.app/favorite
+			https://lazycup.vercel.app/favorite
 		</loc>
 		<changefreq>
 			monthly
@@ -24,7 +24,7 @@
 	</url>
 	<url>
 		<loc>
-			https://lazy-cup.vercel.app/transactions
+			https://lazycup.vercel.app/transactions
 		</loc>
 		<changefreq>
 			monthly
@@ -35,7 +35,7 @@
 	</url>
 	<url>
 		<loc>
-			https://lazy-cup.vercel.app/cart
+			https://lazycup.vercel.app/cart
 		</loc>
 		<changefreq>
 			monthly

@@ -10,7 +10,7 @@ export default {
     <div class="wrapper">
       <div class="logo">
         <router-link
-          aria-label="Start ordering by clicking this image"
+          aria-label="Click here to order"
           :to="{ name: 'products' }"
         >
           <svg
@@ -73,7 +73,7 @@ export default {
       </div>
 
       <router-link
-        aria-label="Start ordering by clicking this image"
+        aria-label="Click here to order"
         :to="{ name: 'products' }"
       >
         <h1 class="clickToStart">Click here to order</h1>
