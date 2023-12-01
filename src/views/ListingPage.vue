@@ -13,15 +13,27 @@ export default {
   setup() {
     const ordersStore = useOrdersStore();
     const loading = ref(true);
-    const badReq = ref(false);
+    const target = ref(0)
     const coffees = ref([]);
 
+    // const fetchData = async () => {
+    //   try {
+    //     const fetchedData = await getCoffees();
+    //     coffees.value = ordersStore.coffees.length > 0 ? ordersStore.coffees : fetchedData;
+    //     loading.value = coffees.value.length > 0;
+    //   } catch (error) {
+    //     console.error("Error fetching data:", error);
+    //   }
+    // };
+    // onBeforeMount(fetchData)
     onBeforeMount(async () => {
       const fetchedData = await getCoffees();
       if (ordersStore.coffees.length > 0) {
         coffees.value = ordersStore.coffees;
-      } else {
+      } else if(fetchedData.length > 0) {
         coffees.value = fetchedData;
+      } else {
+        target.value +1
       }
       coffees.value.length > 0
         ? (loading.value = false)
@@ -30,15 +42,15 @@ export default {
 
     return {
       loading,
-      badReq,
       coffees,
+      target
     };
   },
 };
 </script>
 
 <template>
-  <section class="wrapper listing">
+  <section class="wrapper listing" :key="target">
     <h1>Coffees</h1>
     <template v-if="!loading">
       <div class="tile_wrapper" v-for="item in coffees" :key="item._id">
@@ -46,8 +58,7 @@ export default {
       </div>
     </template>
     <div v-else>
-      <p v-if="badReq">Failed to fetch coffee data.</p>
-      <p v-else>Loading...</p>
+      <p>Loading...</p>
     </div>
   </section>
 </template>
