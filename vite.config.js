@@ -25,7 +25,7 @@ export default defineConfig({
         theme_color: "#e3d3c4",
         icons: [
           {
-            src: '/assets/mstile-144x144.png',
+            src: '/dist/mstile-144x144.png',
             sizes: '144x144',
             type: 'image/png'
           }

@@ -8,7 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 stats.html
-dev-dist
 
 node_modules
 .DS_Store
