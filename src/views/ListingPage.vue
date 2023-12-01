@@ -1,8 +1,7 @@
 <script>
-import { ref, onMounted, onBeforeMount } from "vue";
-// import { beforeRouteEnter } from "vue-router";
+import { ref, onMounted, onBeforeMount, watch } from "vue";
+import { useOrdersStore } from '@/store/orders';
 import ProductTile from "@/components/productTile.vue";
-import { useOrdersStore } from "@/store/orders";
 import { getCoffees } from "@/includes/fetch";
 
 export default {
@@ -11,28 +10,25 @@ export default {
     ProductTile,
   },
   setup() {
-    const ordersStore = useOrdersStore();
+    const useStore = useOrdersStore()
     const loading = ref(true);
-    const target = ref(0)
+    const target = ref(0);
     const coffees = ref([]);
+
     onBeforeMount(async () => {
-      const fetchedData = await getCoffees();
-      if (ordersStore.coffees.length > 0) {
-        coffees.value = ordersStore.coffees;
-      } else if(fetchedData.length > 0) {
-        coffees.value = fetchedData;
-      } else {
-        target.value +1
-      }
-      coffees.value.length > 0
-        ? (loading.value = false)
-        : (loading.value = true);
+      const data = (await getCoffees()).coffeesData;
+      coffees.value = data;
+      useStore.coffees = data
+    });
+
+    watch(coffees, () => {
+      loading.value = coffees.value.length > 0 ? false : true;
     });
 
     return {
       loading,
-      coffees,
-      target
+      data: coffees,
+      target,
     };
   },
 };
@@ -42,7 +38,7 @@ export default {
   <section class="wrapper listing" :key="target">
     <h1>Coffees</h1>
     <template v-if="!loading">
-      <div class="tile_wrapper" v-for="item in coffees" :key="item._id">
+      <div class="tile_wrapper" v-for="item in data" :key="item._id">
         <ProductTile :coffee="item" />
       </div>
     </template>
