@@ -15,17 +15,6 @@ export default {
     const loading = ref(true);
     const target = ref(0)
     const coffees = ref([]);
-
-    // const fetchData = async () => {
-    //   try {
-    //     const fetchedData = await getCoffees();
-    //     coffees.value = ordersStore.coffees.length > 0 ? ordersStore.coffees : fetchedData;
-    //     loading.value = coffees.value.length > 0;
-    //   } catch (error) {
-    //     console.error("Error fetching data:", error);
-    //   }
-    // };
-    // onBeforeMount(fetchData)
     onBeforeMount(async () => {
       const fetchedData = await getCoffees();
       if (ordersStore.coffees.length > 0) {
