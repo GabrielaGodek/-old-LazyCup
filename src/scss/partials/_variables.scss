@@ -28,7 +28,7 @@ $header_padding: 28px;
   align-items: center;
 }
 @mixin shadow {
-  background: #FFF;
+  background: #fff;
   box-shadow: 0px -8px 12px 0px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: 0px -8px 12px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px -8px 12px 0px rgba(0, 0, 0, 0.25);
@@ -48,35 +48,30 @@ $header_padding: 28px;
   font-size: 14px;
   max-height: 30px;
   height: 100%;
-  @media (min-width: $md_breakpoint){
+  @media (min-width: $md_breakpoint) {
     font-size: 20px;
     max-height: none;
     width: 40%;
-
   }
 }
 
 @font-face {
   font-family: "header";
-  src: url("https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/raleway/Raleway-Regular.ttf")
-    format("TrueType");
+  src: url("/src/assets/fonts/Raleway/Raleway-Regular.ttf") format("TrueType");
   font-display: swap;
 }
 @font-face {
   font-family: "text";
-  src: url("https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/roboto/Roboto-Regular.ttf")
-    format("TrueType");
+  src: url("/src/assets/fonts/Roboto/Roboto-Regular.ttf") format("TrueType");
   font-display: swap;
 }
 @font-face {
   font-family: "text--light";
-  src: url("https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/roboto/Roboto-Light.ttf")
-    format("TrueType");
+  src: url("/src/assets/fonts/Roboto/Roboto-Light.ttf") format("TrueType");
   font-display: swap;
 }
 @font-face {
   font-family: "text--bold";
-  src: url("https://cdn.statically.io/gh/GabrielaGodek/Fonts/main/roboto/Roboto-Bold.ttf")
-    format("TrueType");
+  src: url("/src/assets/fonts/Roboto/Roboto-Bold.ttf") format("TrueType");
   font-display: swap;
 }

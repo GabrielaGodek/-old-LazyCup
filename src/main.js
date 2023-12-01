@@ -10,11 +10,22 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import { faList } from '@fortawesome/free-solid-svg-icons'
 
+import { registerSW } from "virtual:pwa-register";
+
+import progressBar from './includes/progressBar'
+import "nprogress/nprogress.css"
+
 import '@/scss/style.css'
 
 import App from './App.vue'
 import router from './router'
 import pinia from './store/pinia'
+
+if ('serviceWorker' in navigator) {
+    registerSW({
+        immediate: true
+    })
+}
 
 const app = createApp(App)
 
@@ -23,6 +34,7 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(pinia)
 app.use(router)
+progressBar(router)
 
 app.mount('#app')
 

@@ -1,27 +1,40 @@
 import { fileURLToPath, URL } from 'node:url'
-import { createProxy } from 'http-proxy-middleware';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+// import visualizer from 'rollup-plugin-visualizer';
+import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  css: {
-    scss: {
-      additionalData: `@import "~@/variables.scss";`
-    },
-    sourceMap: true,
-    loaderOptions: {
-      css: {
-        modules: {
-          auto: () => true
-        }
-      }
-    }
-  },
+  // assetsInclude: ['**/*.ttf'],
+  
   test: {
     global: true,
     environment: "jsdom",
   },
-  plugins: [vue()],
+  plugins: [
+    vue(), 
+    ViteImageOptimizer(), 
+    // visualizer({open: true}), 
+    VitePWA({
+      registerType: 'autoUpdate',
+      devOptions: {
+        enabled: true,
+      },
+      manifest: {
+        theme_color: "#e3d3c4",
+        icons: [
+          {
+            src: '/assets/mstile-144x144.png',
+            sizes: '144x144',
+            type: 'image/png'
+          }
+        ]
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,png,svg}']
+      }
+  })],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

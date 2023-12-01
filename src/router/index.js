@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
-import ListingPage from '@/views/ListingPage.vue'
-import TransactionsPage from '@/views/TransactionsPage.vue'
-import ProductPage from '@/views/ProductPage.vue'
-import CartPage from '@/views/CartPage.vue'
-import FavoritePage from '@/views/FavoritePage.vue'
-import SummaryPage from '@/views/SummaryPage.vue'
+
+const HomeView = () => import("@/views/HomeView.vue")
+const ListingPage = () => import("@/views/ListingPage.vue")
+const TransactionsPage = () => import("@/views/TransactionsPage.vue")
+const CartPage = () => import("@/views/CartPage.vue")
+const FavoritePage = () => import("@/views/FavoritePage.vue")
+const SummaryPage = () => import("@/views/SummaryPage.vue")
+const ProductPage = () => import("@/views/ProductPage.vue")
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

@@ -18,6 +18,7 @@ With this project, I became more comfortable with Vue, managing state with Pinia
 
 ## Dependencies
 - Vue.js: `^3.3.4`
+- Vue Router: `^4.2.2`
 - Pinia: `^2.0.36`
 - Vite: `^4.3.5`
 - Vitest: `^0.34.6`

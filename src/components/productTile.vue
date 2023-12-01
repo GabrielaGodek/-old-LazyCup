@@ -72,7 +72,11 @@ export default {
         </div>
       </div>
       <div class="image" :id="coffee._id" @click="moveToCoffeePage(coffee._id)">
-        <img :src="'/coffees_icons/' + coffee.image" :alt="coffee.name" />
+        <img
+          :src="'/coffees_icons/' + coffee.image"
+          :alt="coffee.name"
+          lazy-loading
+        />
       </div>
       <div
         class="description"
@@ -89,7 +93,7 @@ export default {
           <h4 class="new_price" v-if="coffee.salePrice">
             {{ coffee.salePrice }} zł
           </h4>
-          <h5 class="old_price"> {{ coffee.price }} zł</h5>
+          <h5 class="old_price">{{ coffee.price }} zł</h5>
         </div>
       </div>
     </div>

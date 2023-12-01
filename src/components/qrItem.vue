@@ -8,7 +8,7 @@
       :logoSize="70"
       logoBackgroundColor="white"
     />
-    <img width="294" height="294" class="qrcode__image" src="/cup.svg" alt="LazyCup" />
+    <img width="294" height="294" class="qrcode__image" :src="image" alt="LazyCup" />
   </figure>
 
   <p>To collect order scan this code at the counter</p>
@@ -17,6 +17,7 @@
 <script>
 import QRCode from 'vue-qrcode-dynamic'
 import { reactive } from 'vue'
+import cupSvg from '@/assets/cup.svg'
 export default {
   name: 'qrItem',
   components: {
@@ -24,7 +25,8 @@ export default {
   },
   data() {
     return {
-      ordersData: reactive([])
+      ordersData: reactive([]),
+      image: cupSvg
     }
   },
   props: {

@@ -1,9 +1,9 @@
 <script>
-import { ref, onMounted } from "vue";
-import { mapStores } from "pinia";
+import { ref, onMounted, onBeforeMount } from "vue";
+// import { beforeRouteEnter } from "vue-router";
 import ProductTile from "@/components/productTile.vue";
 import { useOrdersStore } from "@/store/orders";
-import { getCoffees } from "@/util/fetch";
+import { getCoffees } from "@/includes/fetch";
 
 export default {
   name: "ListingPage",
@@ -11,30 +11,33 @@ export default {
     ProductTile,
   },
   setup() {
-  const ordersStore = useOrdersStore();
-  const loading = ref(true);
-  const badReq = ref(false);
-  const coffees = ref([]);
+    const ordersStore = useOrdersStore();
+    const loading = ref(true);
+    const badReq = ref(false);
+    const coffees = ref([]);
 
-  onMounted(async () => {
-    try {
-      const fetchedCoffees = await getCoffees();
-      coffees.value = fetchedCoffees.coffees;
-    } catch (error) {
-      console.error("Failed to fetch coffee data.", error);
-      badReq.value = true;
-    } finally {
-      loading.value = false;
-    }
-  });
+    const fetchCoffees = async () => {
+      try {
+        const fetchedCoffees = await getCoffees();
+        coffees.value = fetchedCoffees.coffees;
+      } catch (error) {
+        console.error("Failed to fetch coffee data.", error);
+        badReq.value = true;
+      } finally {
+        loading.value = false;
+      }
+    };
 
-  return {
-    loading,
-    badReq,
-    coffees: ordersStore.coffees,
-  };
-},
+    onBeforeMount(() => {
+      fetchCoffees();
+    });
 
+    return {
+      loading,
+      badReq,
+      coffees: ordersStore.coffees,
+    };
+  },
 };
 </script>
 
