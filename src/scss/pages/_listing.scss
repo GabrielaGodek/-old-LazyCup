@@ -1,39 +1,51 @@
 @use '../partials/variables' as *;
 
 .listing {
+  min-height: 300px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
 
   gap: 15px;
   justify-items: stretch;
-  align-content: space-around;
   align-items: stretch;
   & > h1 {
     grid-column: span 2;
     font-weight: 600;
   }
+  .loading_wrapper {
+    grid-column: span 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    p {
+      width: 100%;
+    }
+
+  }
   @media (max-width: $xs_breakpoint) {
     grid-template-columns: 1fr;
-    h1 {
+    h1, .loading_wrapper {
       grid-column: span 1;
     }
+
   }
   @media (min-width: $md_breakpoint) {
     grid-template-columns: 1fr 1fr 1fr;
-    h1 {
+    h1, .loading_wrapper{
       grid-column: span 3;
     }
   }
   @media (min-width: $lg_breakpoint) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    h1 {
+    h1, .loading_wrapper {
       grid-column: span 4;
     }
   }
   @media (min-width: $xl_breakpoint) {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    h1 {
+    h1, .loading_wrapper {
       grid-column: span 6;
     }
   }
