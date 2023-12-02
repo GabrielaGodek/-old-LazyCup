@@ -22,8 +22,7 @@ export default {
     });
 
     watch(coffees, () => {
-      // loading.value = coffees.value.length > 0 ? false : true;
-      loading.value = true
+      loading.value = coffees.value.length > 0 ? false : true;
     });
 
     return {
