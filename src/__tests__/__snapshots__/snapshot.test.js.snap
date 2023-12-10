@@ -1,0 +1,89 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`snapshot productTile.vue > renders correctly 1`] = `
+<div
+  class="product_tile"
+  data-v-27b69f7b=""
+  id="651964f924f0811dee90bfed"
+>
+  <div
+    class="tile"
+    data-v-27b69f7b=""
+  >
+    <div
+      class="action"
+      data-v-27b69f7b=""
+    >
+      <div
+        class="cart"
+        data-v-27b69f7b=""
+      >
+        <font-awesome-icon
+          data-v-27b69f7b=""
+          icon="fa-solid fa-cart-shopping"
+          size="lg"
+          style="color: rgb(37, 37, 37);"
+        />
+      </div>
+      <div
+        class="fav"
+        data-v-27b69f7b=""
+      >
+        <font-awesome-icon
+          data-v-27b69f7b=""
+          icon="fa-regular fa-heart"
+          size="lg"
+          style="color: rgb(37, 37, 37);"
+        />
+      </div>
+    </div>
+    <div
+      class="image"
+      data-v-27b69f7b=""
+      id="651964f924f0811dee90bfed"
+    >
+      <img
+        alt="Espresso"
+        data-v-27b69f7b=""
+        lazy-loading=""
+        src="/coffees_icons/Espresso.svg"
+      />
+    </div>
+    <div
+      class="description"
+      data-v-27b69f7b=""
+      id="651964f924f0811dee90bfed"
+    >
+      <h1
+        class="title"
+        data-v-27b69f7b=""
+      >
+        Espresso
+      </h1>
+      <p
+        class="details"
+        data-v-27b69f7b=""
+      >
+        A rich and flavorful coffee.
+      </p>
+      <div
+        class="price_container"
+        data-v-27b69f7b=""
+      >
+        <h4
+          class="new_price"
+          data-v-27b69f7b=""
+        >
+          10 zł 
+        </h4>
+        <h5
+          class="old_price"
+          data-v-27b69f7b=""
+        >
+          12 zł
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+`;
