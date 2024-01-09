@@ -14,9 +14,10 @@ export default {
     const loading = ref(true);
     const target = ref(0);
     const coffees = ref([]);
+    const url = ref('https://nodejs-database.onrender.com/api/v1/coffees/')
 
     onBeforeMount(async () => {
-      const data = (await getCoffees()).coffeesData;
+      const data = (await getCoffees(url.value));
       coffees.value = data;
       useStore.coffees = data
     });

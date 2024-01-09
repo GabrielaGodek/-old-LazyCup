@@ -1,0 +1,154 @@
+[
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bfe5",
+    "name": "Latte",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "image": "Latte.svg",
+    "priceDifference": 0,
+    "id": "651964f924f0811dee90bfe5"
+  },
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bfe6",
+    "name": "Orange espresso",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 15,
+    "salePrice": 10,
+    "image": "Espresso Romano.svg",
+    "priceDifference": 5,
+    "id": "651964f924f0811dee90bfe6"
+  },
+  {
+    "_id": "651964f924f0811dee90bfe7",
+    "name": "Espresso",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 22,
+    "image": "Espresso.svg",
+    "salePrice": 22,
+    "slug": "espresso",
+    "vegan": false,
+    "priceDifference": 0,
+    "id": "651964f924f0811dee90bfe7"
+  },
+  {
+    "_id": "651964f924f0811dee90bfe8",
+    "name": "Americano",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 22,
+    "salePrice": 13,
+    "image": "Americano.svg",
+    "slug": "americano",
+    "vegan": false,
+    "priceDifference": 9,
+    "id": "651964f924f0811dee90bfe8"
+  },
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bfe9",
+    "name": "Frappe",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "salePrice": 18,
+    "image": "Americano.svg",
+    "priceDifference": -8,
+    "id": "651964f924f0811dee90bfe9"
+  },
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bfea",
+    "name": "Cappuccino",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 15,
+    "salePrice": 10,
+    "image": "Latte.svg",
+    "priceDifference": 5,
+    "id": "651964f924f0811dee90bfea"
+  },
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bfeb",
+    "name": "Chai Latte",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 23,
+    "salePrice": 20,
+    "image": "Galao.svg",
+    "priceDifference": 3,
+    "id": "651964f924f0811dee90bfeb"
+  },
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bfec",
+    "name": "Mocha",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 20,
+    "image": "Macchiato.svg",
+    "priceDifference": 0,
+    "id": "651964f924f0811dee90bfec"
+  },
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bfed",
+    "name": "Espresso Romano",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "image": "Espresso Romano.svg",
+    "priceDifference": 0,
+    "id": "651964f924f0811dee90bfed"
+  },
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bfee",
+    "name": "Bonbon",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "salePrice": 9,
+    "image": "Lungo.svg",
+    "priceDifference": 1,
+    "id": "651964f924f0811dee90bfee"
+  },
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bfef",
+    "name": "Cafe au lait",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 13,
+    "salePrice": 9,
+    "image": "Macchiato.svg",
+    "priceDifference": 4,
+    "id": "651964f924f0811dee90bfef"
+  },
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bff0",
+    "name": "Vienna Coffee",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 13,
+    "salePrice": 9,
+    "image": "Galao.svg",
+    "priceDifference": 4,
+    "id": "651964f924f0811dee90bff0"
+  },
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bff1",
+    "name": "Macchiato",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 10,
+    "image": "Macchiato.svg",
+    "priceDifference": 0,
+    "id": "651964f924f0811dee90bff1"
+  },
+  {
+    "vegan": false,
+    "_id": "651964f924f0811dee90bff2",
+    "name": "Corretto",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel euismod purus, vel maximus urna. Nunc in tellus congue, tempus leo eu, congue leo. Aenean in gravida nibh, et feugiat dui.",
+    "price": 15,
+    "salePrice": 13,
+    "image": "Corretto.svg",
+    "priceDifference": 2,
+    "id": "651964f924f0811dee90bff2"
+  }
+]

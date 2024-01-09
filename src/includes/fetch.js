@@ -1,14 +1,12 @@
-// import { useOrdersStore } from '@/store/orders';
-import pinia from '@/store/pinia'
-// import { onMounted, ref } from "vue";
-// const coffeesData = ref([]);
 
-// export const getCoffees = () => {
 export const getCoffees = async (url = '/api/') => {
     let coffeesData = null
+    let controller = new AbortController()
     try {
-        const response = await fetch('https://nodejs-database.onrender.com/api/v1/coffees/', {
+        setTimeout(() => controller.abort(), 1000)
+        const response = await fetch(url, {
             method: 'GET',
+            signal: controller.signal
         });
         if (response && !response.ok) {
             const error = response.status;
@@ -16,22 +14,23 @@ export const getCoffees = async (url = '/api/') => {
             console.error(`HTTP error! Status: ${error}. Details: ${details}`);
             throw new Error(`HTTP error! Status: ${error}. Details: ${details}`);
         }
-
-        coffeesData = (await response.json()).coffees;
-
-
+        coffeesData = (await response.json()).coffees
     } catch (error) {
+        if (error.name == 'AbortError') {
+            try {
+                const backupResponse = await fetch('/backup/db.json');
+                coffeesData = (await backupResponse.json());
+                console.log(coffeesData)
+            } catch (backupError) {
+                console.error('Backup fetch error ❌', backupError);
+                throw backupError;
+            }
+        }
         console.error('Fetch error ❌', error);
-
         throw error;
     }
-    // console.log(coffeesData)
-    return { coffeesData };
+
+    return coffeesData ;
 };
-// onMounted(async () => {
-//     if (!coffeesData.value.length) {
-//         await updateList();
-//     }
-// });
-// }
+
 
