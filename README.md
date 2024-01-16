@@ -1,7 +1,5 @@
 # LazyCup
-Single Page Application that allows you to buy your favorite coffee without waiting in long line at coffee house.
-
-With this project, I became more comfortable with Vue, managing state with Pinia, and delivering props through components. I also developed automated unit tests with Vitest.
+SPA application expanding skills in creating reusable components, passing props, and effective state management. Additionally, it emphasizes the importance of writing unit tests and creating snapshots.
 
 ## Installation
 1. Clone the repository `git clone https://github.com/GabrielaGodek/LazyCup.git`
